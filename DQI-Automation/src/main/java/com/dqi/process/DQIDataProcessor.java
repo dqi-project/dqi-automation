@@ -3,6 +3,8 @@ package com.dqi.process;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import com.dqi.common.ApplicationConstants;
 import com.dqi.compute.BaseMeasuresCalculator;
@@ -32,11 +34,15 @@ import com.dqi.writer.DQIDataWriter;
  *
  */
 public class DQIDataProcessor {
+	
+@Autowired
+QATeamDataAggregator qATeamDataAggregator;
 
 	public void process() throws IOException {
 		QATeamDataReader qaTeamDataReader = new QATeamDataReader();
 		DevTeamDataAggregator devTeamDataAggregator = new DevTeamDataAggregator();
-		QATeamDataAggregator qATeamDataAggregator = new QATeamDataAggregator();
+		//QATeamDataAggregator qATeamDataAggregator = new QATeamDataAggregator();
+		System.out.println("AAAAAAAAAAAAA"+ qATeamDataAggregator);
 		SetupParametersCalculator setupParametersCalculator = new SetupParametersCalculator();
 		BaseMeasuresCalculator baseMeasuresCalculator = new BaseMeasuresCalculator();
 		DataCollectionCompute dataCollection = new DataCollectionCompute();
