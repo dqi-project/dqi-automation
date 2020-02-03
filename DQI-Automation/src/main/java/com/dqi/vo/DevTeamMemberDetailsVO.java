@@ -8,21 +8,23 @@ public class DevTeamMemberDetailsVO {
 	private String name;
 	private String jiraTicketNo;
 	private String sprintName;
-	private int analysis;
-	private int dev;
-	private int ut;
-	private int codeReview;
-	private int internalReviewDefects;
-	private int externalReviewDefects;
-	private int qADefects;
+	private float analysis;
+	private float dev;
+	private float ut;
+	private float codeReview;
+	private float internalReviewDefects;
+	private float externalReviewDefects;
+	private float qADefects;
 	private String summary;
-	private int hours;
+	private float hours;
 
-	public int getHours() {
+	
+
+	public float getHours() {
 		return hours;
 	}
 
-	public void setHours(int hours) {
+	public void setHours(float hours) {
 		this.hours = hours;
 	}
 
@@ -58,63 +60,63 @@ public class DevTeamMemberDetailsVO {
 		this.name = name;
 	}
 
-	public int getAnalysis() {
+	public float getAnalysis() {
 		return analysis;
 	}
 
-	public void setAnalysis(int analysis) {
-		this.analysis = analysis;
-	}
-
-	public int getDev() {
+	public float getDev() {
 		return dev;
 	}
 
-	public void setDev(int dev) {
+	public void setDev(float dev) {
 		this.dev = dev;
 	}
 
-	public int getUt() {
+	public float getUt() {
 		return ut;
 	}
 
-	public void setUt(int ut) {
+	public void setUt(float ut) {
 		this.ut = ut;
 	}
 
-	public int getCodeReview() {
+	public float getCodeReview() {
 		return codeReview;
 	}
 
-	public void setCodeReview(int codeReview) {
+	public void setCodeReview(float codeReview) {
 		this.codeReview = codeReview;
 	}
 
-	public int getInternalReviewDefects() {
+	public float getInternalReviewDefects() {
 		return internalReviewDefects;
 	}
 
-	public void setInternalReviewDefects(int internalReviewDefects) {
+	public void setInternalReviewDefects(float internalReviewDefects) {
 		this.internalReviewDefects = internalReviewDefects;
 	}
 
-	public int getExternalReviewDefects() {
+	public float getExternalReviewDefects() {
 		return externalReviewDefects;
 	}
 
-	public void setExternalReviewDefects(int externalReviewDefects) {
+	public void setExternalReviewDefects(float externalReviewDefects) {
 		this.externalReviewDefects = externalReviewDefects;
 	}
 
-
-	public int getqADefects() {
+	public float getqADefects() {
 		return qADefects;
 	}
 
-	public void setqADefects(int qADefects) {
+	public void setAnalysis(float analysis) {
+		this.analysis = analysis;
+	}
+
+	public void setqADefects(float qADefects) {
 		this.qADefects = qADefects;
 	}
 
+	
 	@Override
 	public String toString() {
 		return "DevTeamMemberDetailsVO [name=" + name + ", jiraTicketNo=" + jiraTicketNo + ", sprintName=" + sprintName

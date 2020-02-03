@@ -3,9 +3,10 @@ package com.dqi.jira;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
+
 
 import com.dqi.vo.DevTeamMemberDetailsVO;
+import com.dqiAutomation.exception.DQIInvalidExcelSheetException;
 
 /**
  * 
@@ -21,8 +22,9 @@ public interface DevTeamDataReader {
 	 * @return
 	 * @throws FileNotFoundException
 	 * @throws IOException
+	 * @throws DQIInvalidExcelSheetException 
 	 */
 	
 	
-	List<DevTeamMemberDetailsVO> readDevTeamData() throws FileNotFoundException, IOException;
+	List<DevTeamMemberDetailsVO> readDevTeamData() throws FileNotFoundException, IOException, DQIInvalidExcelSheetException;
 }

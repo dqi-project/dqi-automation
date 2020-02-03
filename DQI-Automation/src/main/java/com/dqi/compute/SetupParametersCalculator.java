@@ -1,6 +1,8 @@
 package com.dqi.compute;
 
-import com.burn.down.util.Variables;
+import org.apache.log4j.Logger;
+
+import com.burndown.util.DQIVariables;
 import com.dqi.vo.BaseMeasuresVO;
 import com.dqi.vo.DevTeamDataAggregatorVO;
 import com.dqi.vo.QATeamDataAggregatorVO;
@@ -15,57 +17,47 @@ import com.dqi.vo.SetupParametersVO;
  *
  */
 public class SetupParametersCalculator {
-/**
- * 
- * @param devTeamDataAggregatorVO
- * @param qATeamDataAggregatorVO
- * @param baseMeasuresVO
- * @return
- */
-	public SetupParametersVO calculateSetupParameters(DevTeamDataAggregatorVO devTeamDataAggregatorVO,
-			QATeamDataAggregatorVO qATeamDataAggregatorVO,BaseMeasuresVO baseMeasuresVO) {
+	/**
+	 * 
+	 * @param devTeamDataAggregatorVO
+	 * @param qATeamDataAggregatorVO
+	 * @param baseMeasuresVO
+	 * @return
+	 */
+	private static final Logger logger = Logger.getLogger(SetupParametersCalculator.class);
 
+	public SetupParametersVO calculateSetupParameters(DevTeamDataAggregatorVO devTeamDataAggregatorVO,
+			QATeamDataAggregatorVO qATeamDataAggregatorVO, BaseMeasuresVO baseMeasuresVO) {
+
+		DQIVariables dQIVariables = DQIVariables.getInstance();
 		SetupParametersVO setupParametersVO = new SetupParametersVO();
-		
+
 		// --------------------------Aggregate dev and QA parameters
 		double totalAnalysis = devTeamDataAggregatorVO.getTotalAnalysis();
 		double totalDevEfforts = devTeamDataAggregatorVO.getTotalDevEfforts();
 		double totalCodeRefactoringEfforts = devTeamDataAggregatorVO.getTotalCodeReview();
-		
+
 		double totalTestCaseCreationEfforts = qATeamDataAggregatorVO.getTotalTestCaseCreationEfforts();
 		double totalTestCaseReviewEfforts = qATeamDataAggregatorVO.getTotalTestCaseReviewEfforts();
 		double totalManualTestingEfforts = qATeamDataAggregatorVO.getTotalManualTestingEfforts();
 		double totalAutomationTestingEfforts = qATeamDataAggregatorVO.getTotalAutomationTestingEfforts();
-		/*
-		System.out.println("analysis="+totalAnalysis+" totalDevEfforts="+totalDevEfforts+"tc="
-		+totalTestCaseCreationEfforts+"  tcr="+totalTestCaseReviewEfforts+" tme"+totalManualTestingEfforts
-				+" auto"+ totalAutomationTestingEfforts);
-		
-		*/
+
 		// ------------------------------Total actual efforts -----------------
-		
-		double totalActualEfforts=totalAnalysis+totalDevEfforts+totalTestCaseCreationEfforts+
-				totalTestCaseReviewEfforts+totalManualTestingEfforts+totalAutomationTestingEfforts;
-		//System.out.println("TOTAL eFFORTS"+totalActualEfforts);
+
+		double totalActualEfforts = totalAnalysis + totalDevEfforts + totalTestCaseCreationEfforts
+				+ totalTestCaseReviewEfforts + totalManualTestingEfforts + totalAutomationTestingEfforts;
 
 		// --------------------------------Base
 		// measures---------------------------
 		double totalTestCaseDeveloped = qATeamDataAggregatorVO.getTotalnumOfTestCaseDeveloped();
 		double totalTestCaseReview = qATeamDataAggregatorVO.getTotalnumOfTestCaseReviewed();
 		double totalTestCaseExecutedManually = qATeamDataAggregatorVO.getTotalnumOfTestCaseExecutedManually();
-		double totalTestCaseExecutedAutomation = qATeamDataAggregatorVO.getTotalnumOfTestCaseExecutedThroughAutomation();
-		
-		/*double totalActualEfforts = devTeamDataAggregatorVO.getTotalAnalysis()
-				+ devTeamDataAggregatorVO.getTotalDevEfforts()
-				+ qATeamDataAggregatorVO.getTotalTestCaseCreationEfforts()
-				+ qATeamDataAggregatorVO.getTotalTestCaseReviewEfforts()
-				+ qATeamDataAggregatorVO.getTotalManualTestingEfforts()
-				+ qATeamDataAggregatorVO.getTotalAutomationTestingEfforts();
-*/
-		
+		double totalTestCaseExecutedAutomation = qATeamDataAggregatorVO
+				.getTotalnumOfTestCaseExecutedThroughAutomation();
 
-		// ---------------------------Setup parameters
-		// %--------------------------------
+		// ---------------------------Setup
+		// parameters--------------------------------
+
 		double userStoryAnalysisAndDesign = ((totalAnalysis) / (totalActualEfforts)) * 100;
 		double codeDevelopment = ((totalDevEfforts) / (totalActualEfforts)) * 100;
 		double codeRefactoring = ((totalCodeRefactoringEfforts) / (totalActualEfforts)) * 100;
@@ -86,32 +78,15 @@ public class SetupParametersCalculator {
 		baseMeasuresVO.setTestCasesReviewed((int) totalTestCaseReview);
 		baseMeasuresVO.setTestCasesexecutedmanually((int) totalTestCaseExecutedManually);
 		baseMeasuresVO.setTestCasesexecutedAutomation((int) totalTestCaseExecutedAutomation);
-	
-	
+
 		// --------------------------------Productivity-------------------------
-			double productivity =Variables.dQIStoryPoints / totalActualEfforts;
-				
-			/*System.out.println("story Points "+Variables.dQIStoryPoints);*/
-		setupParametersVO.setStoryPoints(Variables.dQIStoryPoints );
+		double productivity = dQIVariables.getdQIStoryPoints() / totalActualEfforts;
+
+		setupParametersVO.setStoryPoints(dQIVariables.getdQIStoryPoints());
 		setupParametersVO.setTotalactualEfforts(totalActualEfforts);
 		setupParametersVO.setProductivity(productivity);
 
-		/*System.out.printf("User Story Analysis and Design=" + userStoryAnalysisAndDesign + "\n");
-		System.out.printf("Code Development=" + setupParametersVO.getCodeDevelopment() + "\n");
-		System.out.printf("Code refactoring=" + setupParametersVO.getCodeRefactoring() + "\n");
-		System.out.printf("Test case creation=" + setupParametersVO.getTestCaseCreation() + "\n");
-		System.out.printf("Test case review=" + setupParametersVO.getTestCaseReview() + "\n");
-		System.out.printf("Manual testing=" + setupParametersVO.getManualTesting() + "\n");
-		System.out.printf("Automation Testing =" + setupParametersVO.getAutomationTesting() + "\n");
-
-		System.out.println("Total num of test case developed=" + baseMeasuresVO.getTestCasesdeveloped() + "\n Total"
-				+ " num of test case Reviewed=" + baseMeasuresVO.getTestCasesReviewed() + "\n"
-				+ " Total numOf Test Case Executed Manually=" + baseMeasuresVO.getTestCasesexecutedmanually() + "\n"
-				+ " Total num Of Test Case ExecutedT hrough Automation="
-				+ baseMeasuresVO.getTestCasesexecutedAutomation() +
-				 "\nTotal Actual Efforts="
-				+ setupParametersVO.getTotalactualEfforts());
-	*/
+		logger.info("Setup parameters calculated successfully");
 		return setupParametersVO;
 	}
 }

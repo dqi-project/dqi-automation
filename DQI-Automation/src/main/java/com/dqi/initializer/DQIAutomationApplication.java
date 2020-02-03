@@ -1,16 +1,14 @@
 package com.dqi.initializer;
 
-import java.io.IOException;
-
 import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
 
-import com.burn.down.ui.MainFrame;
-import com.dqi.process.DQIDataProcessor;
+import com.burndown.ui.MainFrame;
+
 /*
  * This is the main class being used to run the application. the
  * dQIDataProcessor object made here is used to call the process method of the
@@ -20,18 +18,27 @@ import com.dqi.process.DQIDataProcessor;
  *
  */
 @SpringBootApplication
-@ComponentScan("com.dqi.initializer")
 public class DQIAutomationApplication {
-	public static void main(String[] args) {
+
+	private static final Logger logger = Logger.getLogger(DQIAutomationApplication.class);
+	public static MainFrame mainFrameInstance;
+
+	public static void main(String[] args) throws Exception {
 		try {
+
+			BasicConfigurator.configure();
+
+			logger.info("main class running successfully");
+
+ 			UIManager.setLookAndFeel("com.jtattoo.plaf.smart.SmartLookAndFeel");
 			// To set the Look and Feel
-						UIManager.setLookAndFeel("com.jtattoo.plaf.smart.SmartLookAndFeel");
-						new MainFrame().setLocationRelativeTo(null);
-						SpringApplication.run(DQIAutomationApplication.class, args);
+			mainFrameInstance = new MainFrame(true);
+			mainFrameInstance.setLocationRelativeTo(null);
+			SpringApplication.run(DQIAutomationApplication.class, args);
 
+       		} catch (IllegalAccessException e) {
+			logger.error("Exception in main class ", e);
 
-		} catch (Exception ex) {
-			ex.printStackTrace();
 		}
 
 	}

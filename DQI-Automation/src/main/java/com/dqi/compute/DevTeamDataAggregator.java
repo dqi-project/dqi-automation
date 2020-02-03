@@ -2,10 +2,8 @@ package com.dqi.compute;
 
 import java.util.List;
 
-import org.springframework.stereotype.Component;
+import org.apache.log4j.Logger;
 
-import com.dqi.reader.ManualDevTeamDataReader;
-import com.dqi.reader.JiraDevTeamDataReader;
 import com.dqi.vo.DevTeamDataAggregatorVO;
 import com.dqi.vo.DevTeamMemberDetailsVO;
 
@@ -34,6 +32,8 @@ public class DevTeamDataAggregator {
 	 * @param devTeamList
 	 * @return
 	 */
+	private static final Logger logger = Logger.getLogger(DevTeamDataAggregator.class);
+
 	public DevTeamDataAggregatorVO aggregateDevTeamData(List<DevTeamMemberDetailsVO> devTeamList) {
 
 		DevTeamDataAggregatorVO devTeamDataAggregatorVO = new DevTeamDataAggregatorVO();
@@ -65,13 +65,9 @@ public class DevTeamDataAggregator {
 		devTeamDataAggregatorVO.setTotalExternalReviewDefects(totalExternalReviewDefects);
 		devTeamDataAggregatorVO.setTotalQADefects(totalQADefects);
 		devTeamDataAggregatorVO.setTotalStoryPoints(totalStoryPoints);
-/*
-		System.out.println("\nTotalDev=" + totalDev + "\nTotalAnalysis=" + totalAnalysis + " \nTotalCodeReview="
-				+ totalCodeReview + "\nTotal Ut=" + totalUT + "\nTotalInternalReviewDefects="
-				+ totalInternalReviewDefects + "\nTotalExternalReviewDefects= " + totalExternalReviewDefects
-				+ "\nTotalQADefects=" + totalQADefects + "\nTotalStoryPoints=" + totalStoryPoints);
-		System.out.println();
-*/
+
+		logger.info("Development team data aggregated successfully");
+
 		return devTeamDataAggregatorVO;
 
 	}

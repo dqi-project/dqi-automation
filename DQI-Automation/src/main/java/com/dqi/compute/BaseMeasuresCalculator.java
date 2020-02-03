@@ -1,5 +1,8 @@
 package com.dqi.compute;
 
+import org.apache.log4j.Logger;
+
+import com.dqi.reader.JiraDevTeamDataReader;
 import com.dqi.vo.BaseMeasuresVO;
 import com.dqi.vo.QATeamDataAggregatorVO;
 
@@ -12,33 +15,33 @@ import com.dqi.vo.QATeamDataAggregatorVO;
  */
 
 public class BaseMeasuresCalculator {
-/**
- * 
- * @param qATeamDataAggregatorVO
- * @return
- */
+	/**
+	 * 
+	 * @param qATeamDataAggregatorVO
+	 * @return
+	 */
+
+	private static final Logger logger = Logger.getLogger(BaseMeasuresCalculator.class);
+
 	public BaseMeasuresVO calculateBaseMeasures(QATeamDataAggregatorVO qATeamDataAggregatorVO) {
 
 		BaseMeasuresVO baseMeasuresVO = new BaseMeasuresVO();
-		
-		//TotalnumOfTestCaseDeveloped
+
+		// TotalnumOfTestCaseDeveloped
 		baseMeasuresVO.setTestCasesdeveloped(qATeamDataAggregatorVO.getTotalnumOfTestCaseDeveloped());
-		
-		//TotalnumOfTestCaseReviewed
+
+		// TotalnumOfTestCaseReviewed
 		baseMeasuresVO.setTestCasesReviewed((int) qATeamDataAggregatorVO.getTotalnumOfTestCaseReviewed());
-		
-		//TotalnumOfTestCaseExecutedManually
+
+		// TotalnumOfTestCaseExecutedManually
 		baseMeasuresVO
 				.setTestCasesexecutedmanually((int) qATeamDataAggregatorVO.getTotalnumOfTestCaseExecutedManually());
-		
-		//TotalnumOfTestCaseExecutedThroughAutomation
+
+		// TotalnumOfTestCaseExecutedThroughAutomation
 		baseMeasuresVO.setTestCasesexecutedAutomation(
 				(int) qATeamDataAggregatorVO.getTotalnumOfTestCaseExecutedThroughAutomation());
 
-		
-		/*
-		System.out.println("TotalnumOfTestCaseDeveloped ="+baseMeasuresVO.getTestCasesdeveloped()+" TotalnumOfTestCaseReviewed="+baseMeasuresVO.getTestCasesReviewed()
-		+" TotalnumOfTestCaseExecutedManually="+baseMeasuresVO.getTestCasesexecutedmanually()+" TotalnumOfTestCaseExecutedThroughAutomation="+baseMeasuresVO.getTestCasesexecutedAutomation() );*/
+		logger.info("basemeasures calculated");
 		return baseMeasuresVO;
 	}
 
