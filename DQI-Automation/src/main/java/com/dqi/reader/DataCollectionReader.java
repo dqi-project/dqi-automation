@@ -155,9 +155,9 @@ public class DataCollectionReader implements DevTeamDataReader {
 					
 							} 
 					}
-
+					if(devTeamMemberDetailsVO.getName()!=null){
 					membersList.add(devTeamMemberDetailsVO);
-
+					}
 				} logger.info("Data collection reader running successfully");
 
 			

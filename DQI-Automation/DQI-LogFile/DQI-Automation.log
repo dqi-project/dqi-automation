@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 2020-02-03 12:02:05 INFO  DQIAutomationApplication:31 - main class running successfully
 2020-02-03 12:02:27 INFO  MainFrame:396 - JIRA File extension correct
 2020-02-03 12:02:27 INFO  MainFrame:433 - QA File extension correct
@@ -475,3 +476,11 @@ java.lang.NullPointerException
 2020-02-05 15:25:45 INFO  SetupParametersCalculator:89 - Setup parameters calculated successfully
 2020-02-05 15:25:45 INFO  DQIDataWriter:440 - Data written successfully in excel
 2020-02-05 15:26:40 INFO  DQIAutomationApplication:31 - main class running successfully
+=======
+2020-02-05 16:17:31 INFO  DQIAutomationApplication:31 - main class running successfully
+2020-02-05 16:20:36 INFO  DQIAutomationApplication:31 - main class running successfully
+2020-02-05 16:21:49 INFO  DQIAutomationApplication:31 - main class running successfully
+2020-02-05 16:22:52 INFO  DQIAutomationApplication:31 - main class running successfully
+2020-02-05 16:25:32 INFO  DQIAutomationApplication:31 - main class running successfully
+2020-02-05 17:25:18 INFO  DQIAutomationApplication:31 - main class running successfully
+>>>>>>> 8190c948fb55bf6d30ae18c5b4d04875b188a73c

@@ -86,8 +86,13 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener {
 		
 		// Sets frame's title.
 		super("DQI Automation and Burn Down Chart");
+<<<<<<< HEAD
 		Font fontSmall = new Font(Constant.FONT_FAMILY, Font.BOLD, 12);
 		Font fontLarge = new Font(Constant.FONT_FAMILY, Font.BOLD, 15);
+=======
+		Font fontSmall = new Font(Font.SANS_SERIF, Font.BOLD, 12);
+		Font fontLarge = new Font(Font.SANS_SERIF, Font.BOLD, 15);
+>>>>>>> 8190c948fb55bf6d30ae18c5b4d04875b188a73c
 
 		// Initialization of DQI Parameters Section components.
 
