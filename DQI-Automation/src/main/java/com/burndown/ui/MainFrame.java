@@ -21,6 +21,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.filechooser.FileSystemView;
 
@@ -34,11 +35,8 @@ import com.burndown.ui.errordialog.BurnDownChartInvalidExcelSheetErrorDialog;
 import com.burndown.ui.errordialog.BurnDownChartInvalidValuesErrorDialog;
 import com.burndown.ui.errordialog.BurnDownExcelSheetErrorDialog;
 import com.burndown.ui.errordialog.BurnDownSprintNumberAndPlannedHoursErrorDialog;
-import com.burndown.ui.errordialog.DQIFileNotFoundErrorDialog;
-import com.burndown.ui.errordialog.DQIInvalidExcelSheetErrorDialog;
 import com.burndown.ui.errordialog.DQIMonthAndYearErrorDialog;
 import com.burndown.ui.errordialog.DQIRadioButtonErrorDialog;
-import com.burndown.ui.errordialog.DQIStringFoundErrorDialog;
 import com.burndown.ui.errordialog.EmptyFieldsErrorDialog;
 import com.burndown.util.BurnDownVariables;
 import com.burndown.util.Constant;
@@ -85,28 +83,33 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener {
 	 */
 	public MainFrame(boolean value) {
 
+		
 		// Sets frame's title.
 		super("DQI Automation and Burn Down Chart");
-
-		Font font1 = new Font(Constant.FONT_FAMILY, Font.PLAIN, 12);
-		Font font2 = new Font(Constant.FONT_FAMILY, Font.BOLD, 15);
+		Font fontSmall = new Font(Constant.FONT_FAMILY, Font.BOLD, 12);
+		Font fontLarge = new Font(Constant.FONT_FAMILY, Font.BOLD, 15);
 
 		// Initialization of DQI Parameters Section components.
 
 		JLabel dQIMainLabel = new JLabel(Constant.DQI_MAIN_LABEL);
+		dQIMainLabel.setForeground(Color.white);
+		dQIMainLabel.setBackground(new Color(51, 60, 84));
 		dQIMainLabel.setVisible(true);
-		dQIMainLabel.setFont(font1);
-		dQIMainLabel.setBounds(5, 9, 250, 15);
+		dQIMainLabel.setFont(fontLarge);
+		dQIMainLabel.setOpaque(true);
+		dQIMainLabel.setBounds(0, 0, 550, 32);
 
 		JLabel labelDQISprintNumber = new JLabel(Constant.SPRINT_NUMBER);
+	//	labelDQISprintNumber.setForeground(Color.white);
 		labelDQISprintNumber.setVisible(true);
-		labelDQISprintNumber.setFont(font1);
+		labelDQISprintNumber.setFont(fontSmall);
 		labelDQISprintNumber.setBounds(50, 48, 250, 15);
 
 		JLabel labelDQIStoryPoints = new JLabel(Constant.STORY_POINTS);
+	//	labelDQIStoryPoints.setForeground(Color.white);
 		labelDQIStoryPoints.setVisible(true);
-		labelDQIStoryPoints.setFont(font1);
-		labelDQIStoryPoints.setBounds(65, 78, 250, 15);
+		labelDQIStoryPoints.setFont(fontSmall);
+		labelDQIStoryPoints.setBounds(64, 80, 250, 15);
 
 		dQITextFieldSprintNumber = new JTextField();
 		dQITextFieldSprintNumber.setBounds(170, 46, 60, 20);
@@ -115,17 +118,18 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener {
 		dQITextFieldStoryPoints.setBounds(170, 78, 60, 20);
 
 		JLabel labelDQIMonthYear = new JLabel(Constant.DATE);
+	//	labelDQIMonthYear.setForeground(Color.white);
 		labelDQIMonthYear.setVisible(true);
-		labelDQIMonthYear.setFont(font1);
-		labelDQIMonthYear.setBounds(45, 110, 250, 15);
+		labelDQIMonthYear.setFont(fontSmall);
+		labelDQIMonthYear.setBounds(45, 113, 250, 15);
 
-		dropDownMonth = new JComboBox(Constant.MONTHS);
+		dropDownMonth = new JComboBox<String>(Constant.MONTHS);
 		dropDownMonth.setSelectedIndex(0);
 
-		dropDownYear = new JComboBox(Constant.YEAR);
+		dropDownYear = new JComboBox<String>(Constant.YEAR);
 		dropDownYear.setSelectedIndex(0);
 
-		dropDownMonth.setBounds(170, 110, 60, 20);
+		dropDownMonth.setBounds(170, 110, 65, 20);
 		dropDownYear.setBounds(250, 110, 60, 20);
 
 		dropDownMonth.addItemListener(this);
@@ -137,15 +141,24 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener {
 		buttonGroup.add(jiraRadioButton);
 		buttonGroup.add(manualRadioButton);
 
-		jiraRadioButton.setFont(font1);
-		manualRadioButton.setFont(font1);
+		jiraRadioButton.setFont(fontSmall);
+		manualRadioButton.setFont(fontSmall);
+		
+		/*
+		 * jiraRadioButton.setForeground(Color.white);
+		 * manualRadioButton.setForeground(Color.white);
+		 */
+		
+		jiraRadioButton.setBackground(new Color(212, 228, 228));
+		manualRadioButton.setBackground(new Color(212, 228, 228));
+		
 		jiraRadioButton.setText(Constant.JIRA_RADIO_BUTTON_TEXT);
 		manualRadioButton.setText(Constant.MANNUAL_RADIO_BUTTON_TEXT);
 
 		jiraRadioButton.setBounds(50, 160, 470, 20);
 		manualRadioButton.setBounds(50, 178, 470, 40);
 
-		dQITextField1 = new JTextField();// For storing Jira or Mannually
+		dQITextField1 = new JTextField();// For storing Jira or Manually
 											// generated excel sheet file path.
 		dQITextField1.setBounds(77, 220, 250, 20);
 
@@ -154,88 +167,115 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener {
 		dQITextField2.setBounds(77, 292, 250, 20);
 
 		JLabel labelDQI_QA = new JLabel(Constant.DQI_LABEL_1);
+	//	labelDQI_QA.setForeground(Color.white);
 		labelDQI_QA.setVisible(true);
-		labelDQI_QA.setFont(font1);
+		labelDQI_QA.setFont(fontSmall);
 		labelDQI_QA.setBounds(77, 268, 470, 15);
 
 		dQIbrowsebutton1 = new JButton(Constant.BROWSE);
 		dQIbrowsebutton2 = new JButton(Constant.BROWSE);
 		dQIsubmitButton1 = new JButton(Constant.SUBMIT);
+		
+		dQIbrowsebutton1.setBackground(Color.LIGHT_GRAY);
+		dQIbrowsebutton2.setBackground(Color.LIGHT_GRAY);
+		dQIsubmitButton1.setBackground(Color.LIGHT_GRAY);
+		
+		dQIbrowsebutton1.setBorder(new LineBorder(Color.DARK_GRAY,1));
+		dQIbrowsebutton2.setBorder(new LineBorder(Color.DARK_GRAY,1));
+		dQIsubmitButton1.setBorder(new LineBorder(Color.DARK_GRAY,1));
 
 		dQIbrowsebutton1.setToolTipText(Constant.BROWSE);
 		dQIbrowsebutton2.setToolTipText(Constant.BROWSE);
-		dQIsubmitButton1.setToolTipText(Constant.SUBMIT);
-		dQIsubmitButton1.setBackground(Color.LIGHT_GRAY);
+		dQIsubmitButton1.setToolTipText(Constant.SUBMIT);	
 
 		dQIbrowsebutton1.setBounds(330, 219, 100, 25);
 		dQIbrowsebutton2.setBounds(330, 291, 100, 25);
 		dQIsubmitButton1.setBounds(330, 329, 100, 25);
 
-		dQIbrowsebutton1.setFont(font1);
-		dQIbrowsebutton2.setFont(font1);
-		dQIsubmitButton1.setFont(font1);
+		dQIbrowsebutton1.setFont(fontLarge);
+		dQIbrowsebutton2.setFont(fontLarge);
+		dQIsubmitButton1.setFont(fontLarge);
 
 		dQIbrowsebutton1.addActionListener(this);
 		dQIbrowsebutton2.addActionListener(this);
 		dQIsubmitButton1.addActionListener(this);
 
 		// Initialization of Burn Down Chart Section components.
-
+		
 		JLabel burnDownChartMainLabel = new JLabel(Constant.BURN_DOWN_CHART_MAIN_LABEL);
+		burnDownChartMainLabel.setForeground(Color.white);
+		burnDownChartMainLabel.setBackground(new Color(51, 60, 84));
+		burnDownChartMainLabel.setOpaque(true);
 		burnDownChartMainLabel.setVisible(true);
-		burnDownChartMainLabel.setFont(font1);
-		burnDownChartMainLabel.setBounds(5, 380, 250, 15);
+		burnDownChartMainLabel.setFont(fontLarge);
+		burnDownChartMainLabel.setBounds(0, 373, 600, 28);
 
 		JLabel labelBurnDownChart1 = new JLabel(Constant.SPRINT_NUMBER);
+	//	labelBurnDownChart1.setForeground(Color.black);
 		labelBurnDownChart1.setVisible(true);
-		labelBurnDownChart1.setFont(font1);
+		labelBurnDownChart1.setFont(fontSmall);
 		labelBurnDownChart1.setBounds(40, 420, 250, 15);
 
 		JLabel labelBurnDownChart2 = new JLabel(Constant.PLANNED_EFFORTS_IN_HOURS);
+	//	labelBurnDownChart2.setForeground(Color.white);
 		labelBurnDownChart2.setVisible(true);
-		labelBurnDownChart2.setFont(font1);
+		labelBurnDownChart2.setFont(fontSmall);
 		labelBurnDownChart2.setBounds(275, 422, 250, 15);
 
 		JLabel labelBurnDownChart3 = new JLabel(Constant.BURN_DOWN_CHART_LABEL_1);
+	//	labelBurnDownChart3.setForeground(Color.white);
 		labelBurnDownChart3.setVisible(true);
-		labelBurnDownChart3.setFont(font1);
+		labelBurnDownChart3.setFont(fontSmall);
 		labelBurnDownChart3.setBounds(50, 460, 455, 15);
 
 		burnDownBrowseButton = new JButton(Constant.BROWSE);
 		burnDownSubmitButton = new JButton(Constant.SUBMIT);
+		/*
+		 * URL yellow = new
+		 * URL("http://www.wpclipart.com/small_icons/buttons/.cache/button_yellow.png");
+		 * burnDownSubmitButton.setIcon(new ImageIcon(yellow));
+		 */
 
 		burnDownBrowseButton.setToolTipText(Constant.BROWSE);
 		burnDownSubmitButton.setToolTipText(Constant.SUBMIT);
+		
+		burnDownBrowseButton.setBorder(new LineBorder(Color.DARK_GRAY,1));
+		burnDownSubmitButton.setBorder(new LineBorder(Color.DARK_GRAY,1));
 
 		burnDownBrowseButton.setBounds(303, 489, 100, 25);
 		burnDownSubmitButton.setBounds(303, 524, 100, 25);
 
-		burnDownBrowseButton.setFont(font1);
-		burnDownSubmitButton.setFont(font1);
+		burnDownBrowseButton.setFont(fontLarge);
+		burnDownSubmitButton.setFont(fontLarge);
 
+		burnDownBrowseButton.setBackground(Color.LIGHT_GRAY);
 		burnDownSubmitButton.setBackground(Color.LIGHT_GRAY);
 
 		burnDownBrowseButton.addActionListener(this);
 		burnDownSubmitButton.addActionListener(this);
 
 		JLabel jlabelLine1 = new JLabel(Constant.LINE_LABEL, SwingConstants.LEFT);
+		jlabelLine1.setBackground(new Color(212, 228, 228))	;
 		jlabelLine1.setVisible(true);
-		jlabelLine1.setFont(font1);
+		jlabelLine1.setFont(fontSmall);
 		jlabelLine1.setBounds(0, 15, 4000, 20);
 
 		JLabel jlabelLine2 = new JLabel(Constant.LINE_LABEL);
+		jlabelLine2.setBackground(new Color(212, 228, 228));
 		jlabelLine2.setVisible(true);
-		jlabelLine2.setFont(font2);
+		jlabelLine2.setFont(fontLarge);
 		jlabelLine2.setBounds(0, 355, 4000, 20);
 
-		JLabel jlabelLine3 = new JLabel(Constant.LINE_LABEL);
+		JLabel jlabelLine3 = new JLabel(Constant.LINE_LABEL);	
+		jlabelLine3.setBackground(new Color(212, 228, 228));
 		jlabelLine3.setVisible(true);
-		jlabelLine3.setFont(font2);
+		jlabelLine3.setFont(fontLarge);
 		jlabelLine3.setBounds(0, 357, 4000, 20);
 
-		JLabel jlabelLine4 = new JLabel(Constant.LINE_LABEL);
+		JLabel jlabelLine4 = new JLabel(Constant.LINE_LABEL);	
+		jlabelLine4.setBackground(new Color(212, 228, 228));
 		jlabelLine4.setVisible(true);
-		jlabelLine4.setFont(font1);
+		jlabelLine4.setFont(fontSmall);
 		jlabelLine4.setBounds(0, 385, 4000, 20);
 
 		burnDownChartTextField1 = new JTextField();
@@ -248,8 +288,10 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener {
 		burnDownTextFieldPlannedEffortsInHours.setBounds(405, 420, 60, 20);
 
 		JPanel jPanel = new JPanel();
-
-		// Adding all the components to the frame.
+		
+		JLabel colorLabel=new JLabel();		
+		
+		// Adding all the components to the frame.		
 		add(dQIMainLabel);
 		add(jlabelLine1);
 		add(labelDQISprintNumber);
@@ -268,7 +310,7 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener {
 		add(labelDQI_QA);
 		add(dQITextField2);
 		dQITextField1.setVisible(true);
-		add(jlabelLine2);
+		//add(jlabelLine2);
 		add(burnDownChartMainLabel);
 		add(jlabelLine4);
 		add(labelBurnDownChart1);
@@ -280,7 +322,11 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener {
 		add(burnDownBrowseButton);
 		add(burnDownSubmitButton);
 		add(jPanel);
+		add(colorLabel);
 
+		getContentPane().setBackground(new Color(212, 228, 228));
+	    pack();
+	    setVisible(true);
 		setLocation(32, 32);
 		setSize(520, 590);
 		setResizable(false);
@@ -665,10 +711,10 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener {
 				jfileChooser.setAcceptAllFileFilterUsed(false);
 
 				// set a title for the dialog
-				jfileChooser.setDialogTitle("Select a .xlsx file");
+				jfileChooser.setDialogTitle("Select a .xls file");
 
 				// To only allow selection of excel sheet with .xlsx extension
-				jfileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Only .xlsx files", "xlsx"));
+				jfileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Only .xls files", "xlsx"));
 
 				/**
 				 * invoke the showsOpenDialog(null) function to show the open
@@ -717,10 +763,10 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener {
 			jfileChooser.setAcceptAllFileFilterUsed(false);
 
 			// set a title for the dialog
-			jfileChooser.setDialogTitle("Select a .xlsx file");
+			jfileChooser.setDialogTitle("Select a .xls file");
 
 			// only allow files of .xlsx extension
-			jfileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Only .xlsx files", "xlsx"));
+			jfileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Only .xls files", "xlsx"));
 
 			// invoke the showsOpenDialog function to show the open dialog
 			if (jfileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
