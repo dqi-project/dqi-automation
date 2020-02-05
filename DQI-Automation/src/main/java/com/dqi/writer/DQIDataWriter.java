@@ -295,7 +295,8 @@ public class DQIDataWriter {
 					datarow17.getCell(3).setCellStyle(style1);
 					datarow17.createCell(4).setCellValue(name);
 					datarow17.getCell(4).setCellStyle(style1);
-					datarow17.createCell(5).setCellValue(map.get(name).getTotalAnalysis());
+					if (name!= null){
+					datarow17.createCell(5).setCellValue(map.get(name).getTotalAnalysis());}
 					datarow17.getCell(5).setCellStyle(style1);
 
 				}
@@ -318,7 +319,8 @@ public class DQIDataWriter {
 					datarowx.getCell(3).setCellStyle(style1);
 					datarowx.createCell(4).setCellValue(name);
 					datarowx.getCell(4).setCellStyle(style1);
-					datarowx.createCell(5).setCellValue(map.get(name).getTotalDev());
+					if (name != null){
+					datarowx.createCell(5).setCellValue(map.get(name).getTotalDev());}
 					datarowx.getCell(5).setCellStyle(style1);
 
 				}

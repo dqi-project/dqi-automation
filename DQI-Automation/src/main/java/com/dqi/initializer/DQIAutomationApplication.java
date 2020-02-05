@@ -29,14 +29,13 @@ public class DQIAutomationApplication {
 			BasicConfigurator.configure();
 
 			logger.info("main class running successfully");
-
- 			UIManager.setLookAndFeel("com.jtattoo.plaf.smart.SmartLookAndFeel");
+ 		
 			// To set the Look and Feel
 			mainFrameInstance = new MainFrame(true);
 			mainFrameInstance.setLocationRelativeTo(null);
 			SpringApplication.run(DQIAutomationApplication.class, args);
 
-       		} catch (IllegalAccessException e) {
+       		} catch (Exception e) {
 			logger.error("Exception in main class ", e);
 
 		}
