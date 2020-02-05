@@ -318,3 +318,102 @@ java.lang.NullPointerException
 2020-02-03 13:47:33 INFO  BaseMeasuresCalculator:44 - basemeasures calculated
 2020-02-03 13:47:33 INFO  SetupParametersCalculator:89 - Setup parameters calculated successfully
 2020-02-03 13:47:33 INFO  DQIDataWriter:438 - Data written successfully in excel
+2020-02-04 21:49:08 INFO  DQIAutomationApplication:31 - main class running successfully
+2020-02-04 21:49:57 INFO  DQIAutomationApplication:31 - main class running successfully
+2020-02-04 21:50:45 INFO  MainFrame:420 - JIRA File extension correct
+2020-02-04 21:50:45 INFO  MainFrame:457 - QA File extension correct
+2020-02-04 21:50:45 INFO  DQIDataProcessor:61 - Application started successfully
+2020-02-04 21:50:45 INFO  JiraDevTeamDataReader:73 - jira collection reader running successfully
+2020-02-04 21:50:46 INFO  QATeamDataReader:178 - QA team data has been read
+2020-02-04 21:50:46 INFO  DevTeamDataAggregator:69 - Development team data aggregated successfully
+2020-02-04 21:50:46 INFO  QATeamDataAggregator:71 - QA team data aggregated successfully
+2020-02-04 21:50:46 INFO  BaseMeasuresCalculator:44 - basemeasures calculated
+2020-02-04 21:50:46 INFO  SetupParametersCalculator:89 - Setup parameters calculated successfully
+2020-02-04 21:51:02 INFO  DQIDataProcessor:61 - Application started successfully
+2020-02-04 21:51:02 INFO  JiraDevTeamDataReader:73 - jira collection reader running successfully
+2020-02-04 21:51:02 INFO  QATeamDataReader:178 - QA team data has been read
+2020-02-04 21:51:02 INFO  DevTeamDataAggregator:69 - Development team data aggregated successfully
+2020-02-04 21:51:02 INFO  QATeamDataAggregator:71 - QA team data aggregated successfully
+2020-02-04 21:51:02 INFO  BaseMeasuresCalculator:44 - basemeasures calculated
+2020-02-04 21:51:02 INFO  SetupParametersCalculator:89 - Setup parameters calculated successfully
+2020-02-04 21:51:03 INFO  DQIDataWriter:438 - Data written successfully in excel
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:37 INFO  GetDaysAndHours:170 - GetDaysAndHours class running successfully
+2020-02-04 21:51:48 INFO  BurnDownChartSaveFrame:88 - Save frame working.
+2020-02-04 22:08:12 INFO  DQIAutomationApplication:31 - main class running successfully
+2020-02-04 22:08:30 INFO  DQIAutomationApplication:31 - main class running successfully
+2020-02-04 22:09:21 INFO  DQIAutomationApplication:31 - main class running successfully
+2020-02-04 22:11:33 INFO  DQIAutomationApplication:31 - main class running successfully
+2020-02-04 22:13:02 INFO  DQIAutomationApplication:31 - main class running successfully
+2020-02-04 22:14:31 INFO  DQIAutomationApplication:31 - main class running successfully
+2020-02-04 22:17:40 INFO  DQIAutomationApplication:31 - main class running successfully
+2020-02-04 22:18:20 INFO  DQIAutomationApplication:31 - main class running successfully
