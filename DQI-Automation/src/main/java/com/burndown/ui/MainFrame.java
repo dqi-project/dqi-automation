@@ -248,12 +248,7 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener {
 		burnDownTextFieldPlannedEffortsInHours.setBounds(405, 420, 60, 20);
 
 		JPanel jPanel = new JPanel();
-<<<<<<< HEAD
 
-=======
-		setContentPane(new JLabel(new ImageIcon("image/blueColor.jpg")));
-	
->>>>>>> 79b266a8af8d4cc7f44ee8b5c4afd203de0608d4
 		// Adding all the components to the frame.
 		add(dQIMainLabel);
 		add(jlabelLine1);
