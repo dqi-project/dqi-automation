@@ -280,6 +280,7 @@ public class DQIDataWriter {
 			cell18.setCellValue("Names");
 			cell18.setCellStyle(style);
 
+			
 			int i = 5;
 			for (String name : map.keySet()) {
 				datarow17 = sheet3.createRow(i++);
@@ -295,7 +296,8 @@ public class DQIDataWriter {
 					datarow17.getCell(3).setCellStyle(style1);
 					datarow17.createCell(4).setCellValue(name);
 					datarow17.getCell(4).setCellStyle(style1);
-					datarow17.createCell(5).setCellValue(map.get(name).getTotalAnalysis());
+					if (name!= null){
+					datarow17.createCell(5).setCellValue(map.get(name).getTotalAnalysis());}
 					datarow17.getCell(5).setCellStyle(style1);
 
 				}
@@ -318,7 +320,8 @@ public class DQIDataWriter {
 					datarowx.getCell(3).setCellStyle(style1);
 					datarowx.createCell(4).setCellValue(name);
 					datarowx.getCell(4).setCellStyle(style1);
-					datarowx.createCell(5).setCellValue(map.get(name).getTotalDev());
+					if (name != null){
+					datarowx.createCell(5).setCellValue(map.get(name).getTotalDev());}
 					datarowx.getCell(5).setCellStyle(style1);
 
 				}
@@ -345,7 +348,9 @@ public class DQIDataWriter {
 				datarow19.getCell(3).setCellStyle(style1);
 				datarow19.createCell(4).setCellValue(name1.getName());
 				datarow19.getCell(4).setCellStyle(style1);
-				datarow19.createCell(5).setCellValue(name1.getTestCaseCreationEfforts());
+				if(name1.getName()!=null){
+					System.out.println(name1+" "+name1.getTestCaseCreationEfforts());
+				datarow19.createCell(5).setCellValue(name1.getTestCaseCreationEfforts());}
 				datarow19.getCell(5).setCellStyle(style1);
 
 			}
@@ -357,7 +362,7 @@ public class DQIDataWriter {
 
 			int l = 21;
 			for (QATeamMemberDetailsVO name2 : qAlist) {
-				if (name2.getName() == "")
+			if (name2.getName() == "")
 					datarow21 = sheet4.createRow(l++);
 				datarow21.createCell(0).setCellValue(DQIVariables.getInstance().getdQISprintNumber());
 				datarow21.getCell(0).setCellStyle(style1);
@@ -369,7 +374,9 @@ public class DQIDataWriter {
 				datarow21.getCell(3).setCellStyle(style1);
 				datarow21.createCell(4).setCellValue(name2.getName());
 				datarow21.getCell(4).setCellStyle(style1);
-				datarow21.createCell(5).setCellValue(name2.getTestCaseReviewEfforts());
+				if(name2.getName()!=null){
+					System.out.println(name2);
+				datarow21.createCell(5).setCellValue(name2.getTestCaseReviewEfforts());}
 				datarow21.getCell(5).setCellStyle(style1);
 
 			}
@@ -395,7 +402,9 @@ public class DQIDataWriter {
 				datarow23.getCell(3).setCellStyle(style1);
 				datarow23.createCell(4).setCellValue(name3.getName());
 				datarow23.getCell(4).setCellStyle(style1);
-				datarow23.createCell(5).setCellValue(name3.getManualTestingEfforts());
+				if(name3.getName()!=null){
+					System.out.println(name3);
+				datarow23.createCell(5).setCellValue(name3.getManualTestingEfforts());}
 				datarow23.getCell(5).setCellStyle(style1);
 			}
 
@@ -408,8 +417,8 @@ public class DQIDataWriter {
 			int n = 51;
 
 			for (QATeamMemberDetailsVO name4 : qAlist) {
-				if (name4.getName() == "")
-
+				
+			if (name4.getName() == "")
 					datarow25 = sheet4.createRow(n++);
 				datarow25.createCell(0).setCellValue(DQIVariables.getInstance().getdQISprintNumber());
 				datarow25.getCell(0).setCellStyle(style1);
@@ -421,7 +430,8 @@ public class DQIDataWriter {
 				datarow25.getCell(3).setCellStyle(style1);
 				datarow25.createCell(4).setCellValue(name4.getName());
 				datarow25.getCell(4).setCellStyle(style1);
-				datarow25.createCell(5).setCellValue(name4.getAutomationTestingEfforts());
+				if(name4.getName()!=null){System.out.println(name4);
+				datarow25.createCell(5).setCellValue(name4.getAutomationTestingEfforts());}
 				datarow25.getCell(5).setCellStyle(style1);
 			}
 			// file write

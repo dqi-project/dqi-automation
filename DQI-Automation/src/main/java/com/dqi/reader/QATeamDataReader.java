@@ -153,9 +153,9 @@ public class QATeamDataReader {
 							}
 							
 
-						}
+						}if(qATeamMemberDetailsVO.getName()!=null){
  						membersList.add(qATeamMemberDetailsVO);
-
+						}
 					}
 				} else
 					throw new DQIInvalidExcelSheetException(Constant.DQI_EXCEPTION_MESSAGE);

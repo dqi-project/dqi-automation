@@ -170,8 +170,10 @@ public class JiraDevTeamDataReader implements DevTeamDataReader {
 									.setUt(devTeamMemberDetailsVO1.getUt() + devTeamMemberDetailsVO.getUt());
 							devTeamMemberDetailsVO1.setCodeReview(
 									devTeamMemberDetailsVO1.getCodeReview() + devTeamMemberDetailsVO.getCodeReview());
+							
+							if(devTeamMemberDetailsVO1.getName()!=null){
 
-							totalByEmployee1.put(name, devTeamMemberDetailsVO1);
+							totalByEmployee1.put(name, devTeamMemberDetailsVO1);}
 						} else {
 							DevTeamMemberDetailsVO devTeamMemberDetailsVO1 = new DevTeamMemberDetailsVO();
 							devTeamMemberDetailsVO1.setName(name);
@@ -180,8 +182,10 @@ public class JiraDevTeamDataReader implements DevTeamDataReader {
 							devTeamMemberDetailsVO1.setDev(devTeamMemberDetailsVO.getDev());
 							devTeamMemberDetailsVO1.setUt(devTeamMemberDetailsVO.getUt());
 							devTeamMemberDetailsVO1.setCodeReview(devTeamMemberDetailsVO.getCodeReview());
+							if(devTeamMemberDetailsVO1.getName()!=null){
 
 							totalByEmployee1.put(name, devTeamMemberDetailsVO1);
+							}
 						}
 
 					}
@@ -210,7 +214,7 @@ public class JiraDevTeamDataReader implements DevTeamDataReader {
 
 		}
 		logger.info("Jira reader running successfully");
-
+		
 		return membersList;
 
 	}
