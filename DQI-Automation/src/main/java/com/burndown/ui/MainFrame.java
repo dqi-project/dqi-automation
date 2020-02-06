@@ -35,6 +35,9 @@ import com.burndown.ui.errordialog.BurnDownChartInvalidExcelSheetErrorDialog;
 import com.burndown.ui.errordialog.BurnDownChartInvalidValuesErrorDialog;
 import com.burndown.ui.errordialog.BurnDownExcelSheetErrorDialog;
 import com.burndown.ui.errordialog.BurnDownSprintNumberAndPlannedHoursErrorDialog;
+import com.burndown.ui.errordialog.DQIFileNotFoundErrorDialog;
+import com.burndown.ui.errordialog.DQIInvalidExcelSheetErrorDialog;
+import com.burndown.ui.errordialog.DQIInvalidValuesErrorDialog;
 import com.burndown.ui.errordialog.DQIMonthAndYearErrorDialog;
 import com.burndown.ui.errordialog.DQIRadioButtonErrorDialog;
 import com.burndown.ui.errordialog.EmptyFieldsErrorDialog;
@@ -488,9 +491,20 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener {
 				} 
 			}			
 			
-			catch (Exception e) {				
-				logger.error("Error in Main Frame", e);
-			}
+			catch (NumberFormatException errorMessage) {
+				logger.error("Error in Main Frame", errorMessage);
+					new DQIInvalidValuesErrorDialog();
+				} catch (DQIInvalidExcelSheetException errorMessage) {
+					logger.error("Error in Main Frame", errorMessage);
+					new DQIInvalidExcelSheetErrorDialog();
+				} catch (FileNotFoundException errorMessage) {
+				
+					logger.error("Error in Main Frame", errorMessage);
+					new DQIFileNotFoundErrorDialog();
+				} catch (Exception e) {
+					new DQIInvalidExcelSheetErrorDialog();
+					logger.error("Error in Main Frame", e);
+				}
 		}
 
 		/**

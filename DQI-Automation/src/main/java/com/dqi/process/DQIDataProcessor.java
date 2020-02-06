@@ -102,18 +102,23 @@ public class DQIDataProcessor {
 			
 			DQIVariables.getInstance().setFileName(null);
 		} catch (IllegalStateException errorMessage) {
+			DQIVariables.getInstance().setOpenSaveFrame(false);
 			new DQIStringFoundErrorDialog();
 			logger.error("Exception in DQIData processor class ", errorMessage);
 		} catch (FileNotFoundException errorMessage) {
+			DQIVariables.getInstance().setOpenSaveFrame(false);
 			new DQIInvalidExcelSheetErrorDialog();
 			logger.error("Exception in DQIData processor class ", errorMessage);
 		} catch (IOException errorMessage) {
+			DQIVariables.getInstance().setOpenSaveFrame(false);
 			new DQIInvalidExcelSheetErrorDialog();
 			logger.error("Exception in DQIData processor class ", errorMessage);
 		} catch (DQIInvalidExcelSheetException errorMessage) {	
+			DQIVariables.getInstance().setOpenSaveFrame(false);
 			new DQIInvalidExcelSheetErrorDialog();
 			logger.error("Exception in DQIData processor class ", errorMessage);
 		} catch (Exception e) {
+			DQIVariables.getInstance().setOpenSaveFrame(false);
 			new DQIInvalidExcelSheetErrorDialog();
 	logger.error("Exception in DQIData processor class ", e);
 

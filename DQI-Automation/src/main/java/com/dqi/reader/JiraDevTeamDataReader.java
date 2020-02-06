@@ -197,16 +197,17 @@ public class JiraDevTeamDataReader implements DevTeamDataReader {
 
 			} else
 				throw new DQIInvalidExcelSheetException(Constant.DQI_EXCEPTION_MESSAGE);
-		} catch (DQIInvalidExcelSheetException e) {
+		}
+		catch (IllegalStateException errorMessage) {			
+			throw new IllegalStateException();
+			
+		}catch (DQIInvalidExcelSheetException e) {
 			DQIVariables.getInstance()
 					.setFileName(new File(DQIVariables.getInstance().getJiraExcelSheetFilePath()).getName());
 
 			logger.error(Constant.DQI_EXCEPTION_MESSAGE, e);
 			throw new DQIInvalidExcelSheetException(Constant.DQI_EXCEPTION_MESSAGE);
-		} catch (IllegalStateException errorMessage) {			
-			throw new IllegalStateException();
-			
-		} catch (Exception e) {
+		}  catch (Exception e) {
 			DQIVariables.getInstance()
 					.setFileName(new File(DQIVariables.getInstance().getJiraExcelSheetFilePath()).getName());
 			
