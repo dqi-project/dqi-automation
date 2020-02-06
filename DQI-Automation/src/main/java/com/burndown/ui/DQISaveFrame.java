@@ -68,6 +68,7 @@ public class DQISaveFrame extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent ae) {
 
 		if (ae.getSource() == saveButton) {
+			this.setVisible(false);
 			// create an object of JFileChooser class
 			JFileChooser jfileChooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
 
@@ -98,7 +99,7 @@ public class DQISaveFrame extends JFrame implements ActionListener {
 			}
 		}
 
-		setVisible(false);
+		
 	}
 
 }
