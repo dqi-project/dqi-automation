@@ -107,13 +107,11 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener {
 		dQIMainLabel.setBounds(0, 0, 550, 32);
 
 		JLabel labelDQISprintNumber = new JLabel(Constant.SPRINT_NUMBER);
-	//	labelDQISprintNumber.setForeground(Color.white);
 		labelDQISprintNumber.setVisible(true);
 		labelDQISprintNumber.setFont(fontSmall);
 		labelDQISprintNumber.setBounds(50, 48, 250, 15);
 
 		JLabel labelDQIStoryPoints = new JLabel(Constant.STORY_POINTS);
-	//	labelDQIStoryPoints.setForeground(Color.white);
 		labelDQIStoryPoints.setVisible(true);
 		labelDQIStoryPoints.setFont(fontSmall);
 		labelDQIStoryPoints.setBounds(64, 80, 250, 15);
@@ -125,7 +123,6 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener {
 		dQITextFieldStoryPoints.setBounds(170, 78, 60, 20);
 
 		JLabel labelDQIMonthYear = new JLabel(Constant.DATE);
-	//	labelDQIMonthYear.setForeground(Color.white);
 		labelDQIMonthYear.setVisible(true);
 		labelDQIMonthYear.setFont(fontSmall);
 		labelDQIMonthYear.setBounds(45, 113, 250, 15);
@@ -150,11 +147,7 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener {
 
 		jiraRadioButton.setFont(fontSmall);
 		manualRadioButton.setFont(fontSmall);
-		
-		/*
-		 * jiraRadioButton.setForeground(Color.white);
-		 * manualRadioButton.setForeground(Color.white);
-		 */
+
 		
 		jiraRadioButton.setBackground(new Color(212, 228, 228));
 		manualRadioButton.setBackground(new Color(212, 228, 228));
@@ -173,8 +166,7 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener {
 											// path.
 		dQITextField2.setBounds(77, 292, 250, 20);
 
-		JLabel labelDQI_QA = new JLabel(Constant.DQI_LABEL_1);
-	//	labelDQI_QA.setForeground(Color.white);
+		JLabel labelDQI_QA = new JLabel(Constant.DQI_LABEL_1);	
 		labelDQI_QA.setVisible(true);
 		labelDQI_QA.setFont(fontSmall);
 		labelDQI_QA.setBounds(77, 268, 470, 15);
@@ -218,30 +210,23 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener {
 		burnDownChartMainLabel.setBounds(0, 373, 600, 28);
 
 		JLabel labelBurnDownChart1 = new JLabel(Constant.SPRINT_NUMBER);
-	//	labelBurnDownChart1.setForeground(Color.black);
 		labelBurnDownChart1.setVisible(true);
 		labelBurnDownChart1.setFont(fontSmall);
 		labelBurnDownChart1.setBounds(40, 420, 250, 15);
 
 		JLabel labelBurnDownChart2 = new JLabel(Constant.PLANNED_EFFORTS_IN_HOURS);
-	//	labelBurnDownChart2.setForeground(Color.white);
 		labelBurnDownChart2.setVisible(true);
 		labelBurnDownChart2.setFont(fontSmall);
 		labelBurnDownChart2.setBounds(275, 422, 250, 15);
 
 		JLabel labelBurnDownChart3 = new JLabel(Constant.BURN_DOWN_CHART_LABEL_1);
-	//	labelBurnDownChart3.setForeground(Color.white);
 		labelBurnDownChart3.setVisible(true);
 		labelBurnDownChart3.setFont(fontSmall);
 		labelBurnDownChart3.setBounds(50, 460, 455, 15);
 
 		burnDownBrowseButton = new JButton(Constant.BROWSE);
 		burnDownSubmitButton = new JButton(Constant.SUBMIT);
-		/*
-		 * URL yellow = new
-		 * URL("http://www.wpclipart.com/small_icons/buttons/.cache/button_yellow.png");
-		 * burnDownSubmitButton.setIcon(new ImageIcon(yellow));
-		 */
+		
 
 		burnDownBrowseButton.setToolTipText(Constant.BROWSE);
 		burnDownSubmitButton.setToolTipText(Constant.SUBMIT);
@@ -317,7 +302,6 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener {
 		add(labelDQI_QA);
 		add(dQITextField2);
 		dQITextField1.setVisible(true);
-		//add(jlabelLine2);
 		add(burnDownChartMainLabel);
 		add(jlabelLine4);
 		add(labelBurnDownChart1);
@@ -341,6 +325,7 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener {
 
 	} // end of MainFrame()
 
+	
 	public boolean checkFileExtension(String excelFilePath, String fileExtension) {
 		File file = new File(excelFilePath);
 		String fileName = file.getName();
@@ -483,11 +468,14 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener {
 
 					DQIVariables.getInstance().setQaExcelSheetFilePath(dQITextField2.getText());
 
-					logger.info("QA File extension correct");
-					
+					logger.info("QA File extension correct");		
+				 
 					new DQIDataProcessor().process();
+					
 					if(DQIVariables.getInstance().isOpenSaveFrame())
+					{
 						new DQISaveFrame().setLocationRelativeTo(null);
+					}
 				} 
 			}			
 			
@@ -792,17 +780,10 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener {
 				dQITextField2.setText(jfileChooser.getSelectedFile().getAbsolutePath().toString());
 				DQIVariables.getInstance().setQaExcelSheetFilePath(dQITextField2.getText());
 
-				
-
 			}
 
 		
 		}
 
 	}// end of actionPerformed(ActionEvent ae)
-	public static void main(String[] args) {
-			MainFrame mainFrameInstance = new MainFrame(true);
-		mainFrameInstance.setLocationRelativeTo(null);
-	}
-
 }

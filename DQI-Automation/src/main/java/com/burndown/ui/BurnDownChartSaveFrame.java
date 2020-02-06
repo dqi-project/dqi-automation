@@ -93,6 +93,7 @@ public class BurnDownChartSaveFrame extends JFrame implements ActionListener {
 				new BurnDownChartImageSavedDialog().setLocationRelativeTo(null);	
 				}catch(Throwable e)
 				{
+					logger.warn("Exception in BurnDownChartSaveFrame class", e);
 					new BurnDownChartGeneralErrorDialog();
 				}
 			}

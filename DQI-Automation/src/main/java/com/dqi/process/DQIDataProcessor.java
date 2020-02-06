@@ -4,13 +4,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
-
 import org.apache.log4j.Logger;
-
-import com.burndown.ui.DQISaveFrame;
 import com.burndown.ui.errordialog.DQIInvalidExcelSheetErrorDialog;
 import com.burndown.ui.errordialog.DQIStringFoundErrorDialog;
-import com.burndown.util.Constant;
 import com.burndown.util.DQIVariables;
 import com.dqi.compute.BaseMeasuresCalculator;
 import com.dqi.compute.DataCollectionCompute;
@@ -45,6 +41,7 @@ public class DQIDataProcessor {
 
 	public void process() {
 
+		
 		QATeamDataReader qaTeamDataReader = new QATeamDataReader();
 		DevTeamDataAggregator devTeamDataAggregator = new DevTeamDataAggregator();
 		QATeamDataAggregator qATeamDataAggregator = new QATeamDataAggregator();
@@ -94,8 +91,10 @@ public class DQIDataProcessor {
 				// -----------------write method used to write the data in the
 				// final sheet ---------------------
 
-				DQIVariables.getInstance().setOpenSaveFrame(true);
-					
+				
+				DQIVariables.getInstance().setOpenSaveFrame(true);				
+				
+				
 			if(DQIVariables.getInstance().isWriteExcel())
 			  dQIDataWriter.write(setupParametersVO, dataCollectionMap, qAmemberlist,  baseMeasuresVO);
 			 
@@ -103,22 +102,27 @@ public class DQIDataProcessor {
 			DQIVariables.getInstance().setFileName(null);
 		} catch (IllegalStateException errorMessage) {
 			DQIVariables.getInstance().setOpenSaveFrame(false);
+		
 			new DQIStringFoundErrorDialog();
 			logger.error("Exception in DQIData processor class ", errorMessage);
 		} catch (FileNotFoundException errorMessage) {
 			DQIVariables.getInstance().setOpenSaveFrame(false);
+			
 			new DQIInvalidExcelSheetErrorDialog();
 			logger.error("Exception in DQIData processor class ", errorMessage);
 		} catch (IOException errorMessage) {
 			DQIVariables.getInstance().setOpenSaveFrame(false);
+			
 			new DQIInvalidExcelSheetErrorDialog();
 			logger.error("Exception in DQIData processor class ", errorMessage);
 		} catch (DQIInvalidExcelSheetException errorMessage) {	
 			DQIVariables.getInstance().setOpenSaveFrame(false);
+			
 			new DQIInvalidExcelSheetErrorDialog();
 			logger.error("Exception in DQIData processor class ", errorMessage);
 		} catch (Exception e) {
 			DQIVariables.getInstance().setOpenSaveFrame(false);
+		
 			new DQIInvalidExcelSheetErrorDialog();
 	logger.error("Exception in DQIData processor class ", e);
 

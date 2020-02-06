@@ -4,8 +4,6 @@
 package com.burndown.ui.errordialog;
 
 import java.awt.HeadlessException;
-
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -20,7 +18,7 @@ public class BurnDownChartFileNotFoundErrorDialog extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = -7475119978745814061L;
-	private static JDialog jDialog;  
+
 	
 	/**
 	 * Initializes frame components.
