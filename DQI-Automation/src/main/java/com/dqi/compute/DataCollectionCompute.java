@@ -23,33 +23,33 @@ public class DataCollectionCompute {
 	 */
 	public Map<String, DataCollectionVO> aggregateDevTeam(List<DevTeamMemberDetailsVO> membersList) {
 		// creating map
-		Map<String, DataCollectionVO> jiraReadMap = new HashMap<>();
+		Map<String, DataCollectionVO> manualReadMap = new HashMap<>();
 
 		for (DevTeamMemberDetailsVO devTeamMemberDetailsVO : membersList) {
 
 			String name = devTeamMemberDetailsVO.getName();
 			{
 				// reading logic for dev effort sheet
-				if (jiraReadMap.containsKey(name)) {
-					DataCollectionVO dataCollectionVO = jiraReadMap.get(name);
+				if (manualReadMap.containsKey(name)) {
+					DataCollectionVO dataCollectionVO = manualReadMap.get(name);
 
 					dataCollectionVO.setTotalAnalysis(
 							dataCollectionVO.getTotalAnalysis() + devTeamMemberDetailsVO.getAnalysis());
 					dataCollectionVO.setTotalDev((dataCollectionVO.getTotalDev() + devTeamMemberDetailsVO.getDev()
 							+ devTeamMemberDetailsVO.getUt() + devTeamMemberDetailsVO.getCodeReview()));
-					jiraReadMap.put(name, dataCollectionVO);
+					manualReadMap.put(name, dataCollectionVO);
 				} else {
 					DataCollectionVO dataCollectionVO = new DataCollectionVO();
 					dataCollectionVO.setTotalAnalysis(devTeamMemberDetailsVO.getAnalysis());
 					dataCollectionVO.setTotalDev(devTeamMemberDetailsVO.getDev() + devTeamMemberDetailsVO.getUt()
 							+ devTeamMemberDetailsVO.getCodeReview());
-					jiraReadMap.put(name, dataCollectionVO);
+					manualReadMap.put(name, dataCollectionVO);
 				}
 
 			}
 		}
 
-		return jiraReadMap;
+		return manualReadMap;
 	}
 
 }

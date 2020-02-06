@@ -69,7 +69,8 @@ public class QATeamDataAggregator {
 				.setTotalnumOfTestCaseExecutedThroughAutomation((int) totalnumOfTestCaseExecutedThroughAutomation);
 
 		logger.info("QA team data aggregated successfully");
-
+		
+		
 		return qaTeamDataAggregatorVO;
 
 	}

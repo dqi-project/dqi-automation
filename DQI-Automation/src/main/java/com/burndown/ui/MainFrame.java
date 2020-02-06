@@ -61,7 +61,7 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener {
 	static String year;// To store year from dropDownYear.
 	ButtonGroup buttonGroup = new ButtonGroup();
 	// Declaration of reference variables.
-	JButton dQIbrowsebutton1, dQIbrowsebutton2, dQIsubmitButton1, burnDownBrowseButton, burnDownSubmitButton;
+	JButton dQIbrowsebuttonDev, dQIbrowsebuttonQA, dQIsubmitButton1, burnDownBrowseButton, burnDownSubmitButton;
 	JTextField dQITextField1, dQITextField2, burnDownChartTextField1;
 	JTextField dQITextFieldSprintNumber, dQITextFieldStoryPoints, burnDownTextFieldSprintNumber,
 			burnDownTextFieldPlannedEffortsInHours;
@@ -86,13 +86,12 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener {
 		
 		// Sets frame's title.
 		super("DQI Automation and Burn Down Chart");
-<<<<<<< HEAD
+
 		Font fontSmall = new Font(Constant.FONT_FAMILY, Font.BOLD, 12);
 		Font fontLarge = new Font(Constant.FONT_FAMILY, Font.BOLD, 15);
-=======
-		Font fontSmall = new Font(Font.SANS_SERIF, Font.BOLD, 12);
-		Font fontLarge = new Font(Font.SANS_SERIF, Font.BOLD, 15);
->>>>>>> 8190c948fb55bf6d30ae18c5b4d04875b188a73c
+
+
+
 
 		// Initialization of DQI Parameters Section components.
 
@@ -177,32 +176,32 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener {
 		labelDQI_QA.setFont(fontSmall);
 		labelDQI_QA.setBounds(77, 268, 470, 15);
 
-		dQIbrowsebutton1 = new JButton(Constant.BROWSE);
-		dQIbrowsebutton2 = new JButton(Constant.BROWSE);
+		dQIbrowsebuttonDev = new JButton(Constant.BROWSE);
+		dQIbrowsebuttonQA = new JButton(Constant.BROWSE);
 		dQIsubmitButton1 = new JButton(Constant.SUBMIT);
 		
-		dQIbrowsebutton1.setBackground(Color.LIGHT_GRAY);
-		dQIbrowsebutton2.setBackground(Color.LIGHT_GRAY);
+		dQIbrowsebuttonDev.setBackground(Color.LIGHT_GRAY);
+		dQIbrowsebuttonQA.setBackground(Color.LIGHT_GRAY);
 		dQIsubmitButton1.setBackground(Color.LIGHT_GRAY);
 		
-		dQIbrowsebutton1.setBorder(new LineBorder(Color.DARK_GRAY,1));
-		dQIbrowsebutton2.setBorder(new LineBorder(Color.DARK_GRAY,1));
+		dQIbrowsebuttonDev.setBorder(new LineBorder(Color.DARK_GRAY,1));
+		dQIbrowsebuttonQA.setBorder(new LineBorder(Color.DARK_GRAY,1));
 		dQIsubmitButton1.setBorder(new LineBorder(Color.DARK_GRAY,1));
 
-		dQIbrowsebutton1.setToolTipText(Constant.BROWSE);
-		dQIbrowsebutton2.setToolTipText(Constant.BROWSE);
+		dQIbrowsebuttonDev.setToolTipText(Constant.BROWSE);
+		dQIbrowsebuttonQA.setToolTipText(Constant.BROWSE);
 		dQIsubmitButton1.setToolTipText(Constant.SUBMIT);	
 
-		dQIbrowsebutton1.setBounds(330, 219, 100, 25);
-		dQIbrowsebutton2.setBounds(330, 291, 100, 25);
+		dQIbrowsebuttonDev.setBounds(330, 219, 100, 25);
+		dQIbrowsebuttonQA.setBounds(330, 291, 100, 25);
 		dQIsubmitButton1.setBounds(330, 329, 100, 25);
 
-		dQIbrowsebutton1.setFont(fontLarge);
-		dQIbrowsebutton2.setFont(fontLarge);
+		dQIbrowsebuttonDev.setFont(fontLarge);
+		dQIbrowsebuttonQA.setFont(fontLarge);
 		dQIsubmitButton1.setFont(fontLarge);
 
-		dQIbrowsebutton1.addActionListener(this);
-		dQIbrowsebutton2.addActionListener(this);
+		dQIbrowsebuttonDev.addActionListener(this);
+		dQIbrowsebuttonQA.addActionListener(this);
 		dQIsubmitButton1.addActionListener(this);
 
 		// Initialization of Burn Down Chart Section components.
@@ -308,8 +307,8 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener {
 		add(dropDownYear);
 		add(jiraRadioButton);
 		add(manualRadioButton);
-		add(dQIbrowsebutton1);
-		add(dQIbrowsebutton2);
+		add(dQIbrowsebuttonDev);
+		add(dQIbrowsebuttonQA);
 		add(dQIsubmitButton1);
 		add(dQITextField1);
 		add(labelDQI_QA);
@@ -638,7 +637,7 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener {
 				jfileChooser.setAcceptAllFileFilterUsed(false);
 
 				// set a title for the dialog
-				jfileChooser.setDialogTitle("Select a .xls file");
+				jfileChooser.setDialogTitle("Select a file");
 
 				// To only allow selection of excel sheet with .xls extension
 				jfileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Only .xls files", "xls"));
@@ -672,7 +671,7 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener {
 		 * In DQI Parameters Section, if user presses dQIbrowsebutton1 and one
 		 * of the radio box is selected then following code is executed.
 		 */
-		else if (ae.getSource() == dQIbrowsebutton1
+		else if (ae.getSource() == dQIbrowsebuttonDev
 				&& (false == Constant.MONTHS[0].equals(dropDownMonth.getSelectedItem().toString())
 						&& false == Constant.YEAR[0].equals(dropDownYear.getSelectedItem().toString()))) {
 
@@ -689,7 +688,7 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener {
 				jfileChooser.setAcceptAllFileFilterUsed(false);
 
 				// set a title for the dialog
-				jfileChooser.setDialogTitle("Select a .xls file");
+				jfileChooser.setDialogTitle("Select a file");
 
 				// To only allow selection of excel sheet with .xls extension
 
@@ -716,7 +715,7 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener {
 				jfileChooser.setAcceptAllFileFilterUsed(false);
 
 				// set a title for the dialog
-				jfileChooser.setDialogTitle("Select a .xls file");
+				jfileChooser.setDialogTitle("Select a file");
 
 				// To only allow selection of excel sheet with .xlsx extension
 				jfileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Only .xls files", "xlsx"));
@@ -747,7 +746,7 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener {
 		 * In DQI Parameters section, if user fails to enter Month and Year then
 		 * error message is shown.
 		 */
-		else if (ae.getSource() == dQIbrowsebutton1
+		else if (ae.getSource() == dQIbrowsebuttonDev
 				&& (Constant.MONTHS[0].equals(dropDownMonth.getSelectedItem().toString())
 						|| Constant.YEAR[0].equals(dropDownYear.getSelectedItem().toString()))) {
 			// error message
@@ -758,7 +757,7 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener {
 		 * In DQI Parameters section, if user presses dQIbrowsebutton2 then
 		 * following code is executed to upload QA effort sheet.
 		 */
-		else if (ae.getSource() == dQIbrowsebutton2)
+		else if (ae.getSource() == dQIbrowsebuttonQA)
 
 		{
 			// Creating an object of JFileChooser class
@@ -768,7 +767,7 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener {
 			jfileChooser.setAcceptAllFileFilterUsed(false);
 
 			// set a title for the dialog
-			jfileChooser.setDialogTitle("Select a .xls file");
+			jfileChooser.setDialogTitle("Select a file");
 
 			// only allow files of .xlsx extension
 			jfileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Only .xls files", "xlsx"));
@@ -787,5 +786,9 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener {
 		}
 
 	}// end of actionPerformed(ActionEvent ae)
+	public static void main(String[] args) {
+			MainFrame mainFrameInstance = new MainFrame(true);
+		mainFrameInstance.setLocationRelativeTo(null);
+	}
 
 }

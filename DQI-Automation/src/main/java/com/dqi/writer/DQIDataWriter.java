@@ -296,7 +296,7 @@ public class DQIDataWriter {
 					datarow17.getCell(3).setCellStyle(style1);
 					datarow17.createCell(4).setCellValue(name);
 					datarow17.getCell(4).setCellStyle(style1);
-					if (name!= null){
+					if (name!= ""){
 					datarow17.createCell(5).setCellValue(map.get(name).getTotalAnalysis());}
 					datarow17.getCell(5).setCellStyle(style1);
 
@@ -320,7 +320,7 @@ public class DQIDataWriter {
 					datarowx.getCell(3).setCellStyle(style1);
 					datarowx.createCell(4).setCellValue(name);
 					datarowx.getCell(4).setCellStyle(style1);
-					if (name != null){
+					if (name != ""){
 					datarowx.createCell(5).setCellValue(map.get(name).getTotalDev());}
 					datarowx.getCell(5).setCellStyle(style1);
 
@@ -338,6 +338,8 @@ public class DQIDataWriter {
 				if (name1.getName() == "")
 
 					datarow19 = sheet4.createRow(k++);
+				if (name1 != null){
+					if(name1.getName()!=""){
 				datarow19.createCell(0).setCellValue(DQIVariables.getInstance().getdQISprintNumber());
 				datarow19.getCell(0).setCellStyle(style1);
 				datarow19.createCell(1).setCellValue(DQIVariables.getInstance().getdQIMonthYear());
@@ -346,13 +348,13 @@ public class DQIDataWriter {
 				datarow19.getCell(2).setCellStyle(style1);
 				datarow19.createCell(3).setCellValue("Test Case Creation");
 				datarow19.getCell(3).setCellStyle(style1);
+				
 				datarow19.createCell(4).setCellValue(name1.getName());
 				datarow19.getCell(4).setCellStyle(style1);
-				if(name1.getName()!=null){
-					System.out.println(name1+" "+name1.getTestCaseCreationEfforts());
-				datarow19.createCell(5).setCellValue(name1.getTestCaseCreationEfforts());}
-				datarow19.getCell(5).setCellStyle(style1);
-
+				
+				datarow19.createCell(5).setCellValue(name1.getTestCaseCreationEfforts());
+				datarow19.getCell(5).setCellStyle(style1);}
+				}
 			}
 
 			Row datarow21 = sheet4.createRow(20);
@@ -364,6 +366,8 @@ public class DQIDataWriter {
 			for (QATeamMemberDetailsVO name2 : qAlist) {
 			if (name2.getName() == "")
 					datarow21 = sheet4.createRow(l++);
+			if (name2 != null){
+				if(name2.getName()!=""){
 				datarow21.createCell(0).setCellValue(DQIVariables.getInstance().getdQISprintNumber());
 				datarow21.getCell(0).setCellStyle(style1);
 				datarow21.createCell(1).setCellValue(DQIVariables.getInstance().getdQIMonthYear());
@@ -372,15 +376,15 @@ public class DQIDataWriter {
 				datarow21.getCell(2).setCellStyle(style1);
 				datarow21.createCell(3).setCellValue("Test Case review");
 				datarow21.getCell(3).setCellStyle(style1);
+				
 				datarow21.createCell(4).setCellValue(name2.getName());
 				datarow21.getCell(4).setCellStyle(style1);
-				if(name2.getName()!=null){
-					System.out.println(name2);
-				datarow21.createCell(5).setCellValue(name2.getTestCaseReviewEfforts());}
+				
+				datarow21.createCell(5).setCellValue(name2.getTestCaseReviewEfforts());
 				datarow21.getCell(5).setCellStyle(style1);
-
+				}
 			}
-
+			}
 			Row datarow23 = sheet4.createRow(35);
 			Row datarow23a = sheet4.createRow(33);
 			datarow23a.createCell(3).setCellValue("Manual Testing");
@@ -391,6 +395,8 @@ public class DQIDataWriter {
 				if (name3.getName() == "")
 
 					datarow23 = sheet4.createRow(m++);
+				if (name3 != null){
+					if(name3.getName()!=""){
 
 				datarow23.createCell(0).setCellValue(DQIVariables.getInstance().getdQISprintNumber());
 				datarow23.getCell(0).setCellStyle(style1);
@@ -400,13 +406,13 @@ public class DQIDataWriter {
 				datarow23.getCell(2).setCellStyle(style1);
 				datarow23.createCell(3).setCellValue("Manual Testing");
 				datarow23.getCell(3).setCellStyle(style1);
+				
 				datarow23.createCell(4).setCellValue(name3.getName());
 				datarow23.getCell(4).setCellStyle(style1);
-				if(name3.getName()!=null){
-					System.out.println(name3);
-				datarow23.createCell(5).setCellValue(name3.getManualTestingEfforts());}
-				datarow23.getCell(5).setCellStyle(style1);
-			}
+				
+				datarow23.createCell(5).setCellValue(name3.getManualTestingEfforts());
+				datarow23.getCell(5).setCellStyle(style1);}
+			}}
 
 			Row datarow25 = sheet4.createRow(50);
 			Row datarow25a = sheet4.createRow(48);
@@ -420,6 +426,8 @@ public class DQIDataWriter {
 				
 			if (name4.getName() == "")
 					datarow25 = sheet4.createRow(n++);
+			if (name4 != null){
+				if(name4.getName()!=""){
 				datarow25.createCell(0).setCellValue(DQIVariables.getInstance().getdQISprintNumber());
 				datarow25.getCell(0).setCellStyle(style1);
 				datarow25.createCell(1).setCellValue(DQIVariables.getInstance().getdQIMonthYear());
@@ -428,12 +436,13 @@ public class DQIDataWriter {
 				datarow25.getCell(2).setCellStyle(style1);
 				datarow25.createCell(3).setCellValue("Automation Testing");
 				datarow25.getCell(3).setCellStyle(style1);
+				
 				datarow25.createCell(4).setCellValue(name4.getName());
 				datarow25.getCell(4).setCellStyle(style1);
-				if(name4.getName()!=null){System.out.println(name4);
-				datarow25.createCell(5).setCellValue(name4.getAutomationTestingEfforts());}
+				
+				datarow25.createCell(5).setCellValue(name4.getAutomationTestingEfforts());
 				datarow25.getCell(5).setCellStyle(style1);
-			}
+			}}}
 			// file write
 			FileOutputStream outputStream = new FileOutputStream(
 					DQIVariables.getInstance().getdQIfinalSheetPath() + ".xlsx");
