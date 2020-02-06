@@ -539,3 +539,38 @@ java.lang.NullPointerException
 2020-02-06 11:40:59 INFO  BaseMeasuresCalculator:44 - basemeasures calculated
 2020-02-06 11:40:59 INFO  SetupParametersCalculator:89 - Setup parameters calculated successfully
 2020-02-06 11:40:59 INFO  DQIDataWriter:457 - Data written successfully in excel
+2020-02-06 11:56:26 INFO  DQIAutomationApplication:31 - main class running successfully
+2020-02-06 11:57:02 INFO  MainFrame:446 - JIRA File extension correct
+2020-02-06 11:57:02 INFO  MainFrame:483 - QA File extension correct
+2020-02-06 11:57:02 INFO  DQIDataProcessor:61 - Application started successfully
+2020-02-06 11:57:02 INFO  JiraDevTeamDataReader:73 - jira collection reader running successfully
+2020-02-06 11:57:02 INFO  QATeamDataReader:178 - QA team data has been read
+2020-02-06 11:57:02 INFO  DevTeamDataAggregator:69 - Development team data aggregated successfully
+2020-02-06 11:57:02 INFO  QATeamDataAggregator:71 - QA team data aggregated successfully
+2020-02-06 11:57:02 INFO  BaseMeasuresCalculator:44 - basemeasures calculated
+2020-02-06 11:57:02 INFO  SetupParametersCalculator:89 - Setup parameters calculated successfully
+2020-02-06 11:57:06 INFO  DQIDataProcessor:61 - Application started successfully
+2020-02-06 11:57:06 INFO  JiraDevTeamDataReader:73 - jira collection reader running successfully
+2020-02-06 11:57:06 INFO  QATeamDataReader:178 - QA team data has been read
+2020-02-06 11:57:06 INFO  DevTeamDataAggregator:69 - Development team data aggregated successfully
+2020-02-06 11:57:06 INFO  QATeamDataAggregator:71 - QA team data aggregated successfully
+2020-02-06 11:57:06 INFO  BaseMeasuresCalculator:44 - basemeasures calculated
+2020-02-06 11:57:06 INFO  SetupParametersCalculator:89 - Setup parameters calculated successfully
+2020-02-06 11:57:06 INFO  DQIDataWriter:457 - Data written successfully in excel
+2020-02-06 11:58:51 INFO  MainFrame:446 - JIRA File extension correct
+2020-02-06 11:58:51 INFO  MainFrame:483 - QA File extension correct
+2020-02-06 11:58:51 INFO  DQIDataProcessor:61 - Application started successfully
+2020-02-06 11:58:51 INFO  JiraDevTeamDataReader:73 - jira collection reader running successfully
+2020-02-06 11:58:51 INFO  QATeamDataReader:178 - QA team data has been read
+2020-02-06 11:58:51 INFO  DevTeamDataAggregator:69 - Development team data aggregated successfully
+2020-02-06 11:58:51 INFO  QATeamDataAggregator:71 - QA team data aggregated successfully
+2020-02-06 11:58:51 INFO  BaseMeasuresCalculator:44 - basemeasures calculated
+2020-02-06 11:58:51 INFO  SetupParametersCalculator:89 - Setup parameters calculated successfully
+2020-02-06 11:58:55 INFO  DQIDataProcessor:61 - Application started successfully
+2020-02-06 11:58:55 INFO  JiraDevTeamDataReader:73 - jira collection reader running successfully
+2020-02-06 11:58:55 INFO  QATeamDataReader:178 - QA team data has been read
+2020-02-06 11:58:55 INFO  DevTeamDataAggregator:69 - Development team data aggregated successfully
+2020-02-06 11:58:55 INFO  QATeamDataAggregator:71 - QA team data aggregated successfully
+2020-02-06 11:58:55 INFO  BaseMeasuresCalculator:44 - basemeasures calculated
+2020-02-06 11:58:55 INFO  SetupParametersCalculator:89 - Setup parameters calculated successfully
+2020-02-06 11:58:55 INFO  DQIDataWriter:457 - Data written successfully in excel
