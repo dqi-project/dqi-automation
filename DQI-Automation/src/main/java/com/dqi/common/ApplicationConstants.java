@@ -14,6 +14,7 @@ public final class ApplicationConstants {
 	public static final String DEVELOPMENT1 = "DEVELOPMENT";
 	public static final String DEV = "DEV";
 	public static final String DEV1 = "dev";
+	public static final String DEV2 = "Dev";
 	
 	public static final String ANALYSIS = "Analysis";
 	public static final String ANALYSIS1 = "ANALYSIS";
