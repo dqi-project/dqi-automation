@@ -122,7 +122,7 @@ public class JiraDevTeamDataReader implements DevTeamDataReader {
 
 						if (membersList.get(i).getSummary().startsWith(ApplicationConstants.DEVELOPMENT)
 								|| membersList.get(i).getSummary().startsWith(ApplicationConstants.DEV)||membersList.get(i).getSummary().startsWith(ApplicationConstants.DEVELOPMENT1)
-								|| membersList.get(i).getSummary().startsWith(ApplicationConstants.DEV1)) {
+								|| membersList.get(i).getSummary().startsWith(ApplicationConstants.DEV1)|| membersList.get(i).getSummary().startsWith(ApplicationConstants.DEV2)) {
 							devTeamMemberDetailsVO.setDev(membersList.get(i).getHours());
 							devTeamMemberDetailsVO.setAnalysis(0);
 							devTeamMemberDetailsVO.setUt(0);
