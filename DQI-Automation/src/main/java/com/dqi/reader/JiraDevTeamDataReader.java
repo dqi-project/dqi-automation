@@ -121,26 +121,28 @@ public class JiraDevTeamDataReader implements DevTeamDataReader {
 					for (i = 0; i < membersList.size(); i++) {
 
 						if (membersList.get(i).getSummary().startsWith(ApplicationConstants.DEVELOPMENT)
-								|| membersList.get(i).getSummary().startsWith(ApplicationConstants.DEV)) {
+								|| membersList.get(i).getSummary().startsWith(ApplicationConstants.DEV)||membersList.get(i).getSummary().startsWith(ApplicationConstants.DEVELOPMENT1)
+								|| membersList.get(i).getSummary().startsWith(ApplicationConstants.DEV1)) {
 							devTeamMemberDetailsVO.setDev(membersList.get(i).getHours());
 							devTeamMemberDetailsVO.setAnalysis(0);
 							devTeamMemberDetailsVO.setUt(0);
 							devTeamMemberDetailsVO.setCodeReview(0);
 
-						} else if (membersList.get(i).getSummary().startsWith(ApplicationConstants.ANALYSIS)) {
+						} else if (membersList.get(i).getSummary().startsWith(ApplicationConstants.ANALYSIS)||membersList.get(i).getSummary().startsWith(ApplicationConstants.ANALYSIS1)) {
 							devTeamMemberDetailsVO.setAnalysis(membersList.get(i).getHours());
 							devTeamMemberDetailsVO.setUt(0);
 							devTeamMemberDetailsVO.setCodeReview(0);
 							devTeamMemberDetailsVO.setDev(0);
 							devTeamMemberDetailsVO.setDev(0);
 						} else if (membersList.get(i).getSummary().startsWith(ApplicationConstants.UNITTESTING)
-								|| membersList.get(i).getSummary().startsWith(ApplicationConstants.UT)) {
+								|| membersList.get(i).getSummary().startsWith(ApplicationConstants.UT)||membersList.get(i).getSummary().startsWith(ApplicationConstants.UNITTESTING1)
+								|| membersList.get(i).getSummary().startsWith(ApplicationConstants.UT1)) {
 							devTeamMemberDetailsVO.setUt(membersList.get(i).getHours());
 							devTeamMemberDetailsVO.setDev(0);
 							devTeamMemberDetailsVO.setAnalysis(0);
 							devTeamMemberDetailsVO.setCodeReview(0);
 
-						} else if (membersList.get(i).getSummary().startsWith(ApplicationConstants.CODEREVIEW)) {
+						} else if (membersList.get(i).getSummary().startsWith(ApplicationConstants.CODEREVIEW)||membersList.get(i).getSummary().startsWith(ApplicationConstants.CODEREVIEW1)) {
 							devTeamMemberDetailsVO.setCodeReview(membersList.get(i).getHours());
 							devTeamMemberDetailsVO.setDev(0);
 							devTeamMemberDetailsVO.setAnalysis(0);
