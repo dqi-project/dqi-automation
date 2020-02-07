@@ -297,9 +297,9 @@ public class DQIDataWriter {
 					datarow17.createCell(4).setCellValue(name);
 					datarow17.getCell(4).setCellStyle(style1);
 					if (name!= ""){
-					datarow17.createCell(5).setCellValue(map.get(name).getTotalAnalysis());}
+					datarow17.createCell(5).setCellValue(map.get(name).getTotalAnalysis());
 					datarow17.getCell(5).setCellStyle(style1);
-
+					}
 				}
 			}
 
