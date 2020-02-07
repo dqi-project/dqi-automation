@@ -167,7 +167,7 @@ public class GetDaysAndHours implements ExcelSheetHoursAndDaysReader {
 						break;
 					}
 				}
-				logger.info("GetDaysAndHours class running successfully");
+				
 				
 				if((false == Constant.COLUMN_VALUE_1
 					.equalsIgnoreCase(BurnDownVariables.getInstance().getColumnValues()[0])
@@ -182,7 +182,7 @@ public class GetDaysAndHours implements ExcelSheetHoursAndDaysReader {
 				}
 
 			}
-
+                 logger.info("GetDaysAndHours class running successfully");
 		}catch (OfficeXmlFileException e) {				
 			logger.error("Excel sheet is not valid", e);
 			daysAndHoursMap=null;
