@@ -11,12 +11,19 @@ package com.dqi.common;
 public final class ApplicationConstants {
 
 	public static final String DEVELOPMENT = "Development";
+	public static final String DEVELOPMENT1 = "DEVELOPMENT";
 	public static final String DEV = "DEV";
+	public static final String DEV1 = "dev";
+	public static final String DEV2 = "Dev";
 	
 	public static final String ANALYSIS = "Analysis";
+	public static final String ANALYSIS1 = "ANALYSIS";
 	public static final String UNITTESTING = "Unit Testing";
+	public static final String UNITTESTING1 = "UNIT TESTING";
 	public static final String UT="UT";
+	public static final String UT1="ut";
 	public static final String CODEREVIEW = "Code Review";
+	public static final String CODEREVIEW1 = "CODE REVIEW";
 	
 	
 	//cell numbers

@@ -318,6 +318,7 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener {
 		getContentPane().setBackground(new Color(212, 228, 228));
 	    pack();
 	    setVisible(true);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocation(32, 32);
 		setSize(520, 590);
 		setResizable(false);
