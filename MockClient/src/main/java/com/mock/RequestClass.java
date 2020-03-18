@@ -16,24 +16,20 @@ import org.apache.http.util.EntityUtils;
  */
 public class RequestClass {
 	
-public String sendPOST(String url,StringBuilder json) throws Exception
-	{
-		
+String jql;
+String fields[];
 	
-	String result = "";
-    HttpPost post = new HttpPost(url);
+public String getJql() {
+		return jql;
+	}
+	public void setJql(String jql) {
+		this.jql = jql;
+	}
 
-    
-
-    // send a JSON data
-    post.setEntity(new StringEntity(json.toString()));
-
-    try (CloseableHttpClient httpClient = HttpClients.createDefault();
-         CloseableHttpResponse response = httpClient.execute(post)) {
-
-        result = EntityUtils.toString(response.getEntity());
-    }
-
-    return result;
+	public String[] getFields() {
+		return fields;
+	}
+	public void setFields(String[] fields) {
+		this.fields = fields;
 	}
 }
