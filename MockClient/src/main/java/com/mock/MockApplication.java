@@ -17,9 +17,7 @@ public class MockApplication {
 		String url="http://localhost:8091/rest/api/2/search";
 		
 		StringBuilder jsonInput = new StringBuilder();
-	    jsonInput.append("{\"jql\": \"worklogAuthor in ('Mohit_Srivastava@symantec.com\", priyadarsini, Virender_Bartwal,"
-		 		+ " Akash_Bajpai, Sneha_Verma, vrinda_singh, Vinay_Panwar, "
-		 		+ "Abhisheksingh_kushwa, Maneesh_Chowdarygunt, Dev Singh) AND"
+	    jsonInput.append("{\"jql\": \"worklogAuthor in (name1, name2) AND"
 		 		+ " Worklogoate>e 2019/12/26 AND wOrklogDate >= '2019/01/25\", "
 		 		+ "\"fields\": [\"key\", \"summary\", \"assignee\",timespent\",\"timeoriginalestimate\"] }");
 		 
