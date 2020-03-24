@@ -13,6 +13,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service("consumer")
 public class JIRAServiceConsumer {
+
 	
 	public void search() {
 		RestTemplate restTemplate = new RestTemplate();
@@ -38,9 +39,9 @@ public class JIRAServiceConsumer {
 		
 		HttpEntity<SearchRequest> request = new HttpEntity<>(requestVO);
 		//String response = restTemplate.postForObject("http://localhost:8091/rest/api/2/search", request, String.class);
-		SearchResponse response = restTemplate.postForObject("http://localhost:8091/rest/api/2/search", request, SearchResponse.class);
+		SearchResponse response = restTemplate.postForObject("http://"+ApplicationConstants.HOST+":"+ApplicationConstants.PORT+ApplicationConstants.API_URL, request, SearchResponse.class);
 		System.out.println(response);
-		
 	}
+
 
 }
