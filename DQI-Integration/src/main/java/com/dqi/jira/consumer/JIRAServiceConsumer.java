@@ -8,6 +8,10 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.dqi.common.ApplicationConstants;
+import com.dqi.jira.request.RequestHelper;
+import com.dqi.jira.request.SearchRequest;
+import com.dqi.jira.response.SearchResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
