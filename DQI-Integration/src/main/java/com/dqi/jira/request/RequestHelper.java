@@ -1,17 +1,42 @@
 package com.dqi.jira.request;
 
+import java.text.MessageFormat;
 import java.util.Arrays;
 import java.util.List;
 
-public class RequestHelper {
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
-	public static SearchRequest getSearchRequest() {
+@Configuration
+@ComponentScan(basePackages="com.dqi.jira.request")
+@Component
+public class RequestHelper {
+	
+@Autowired
+JiraPropertyLoader jiraPropertyLoader;
+
+	public static SearchRequest getSearchRequestDev(RequestHelper requestHelper) {
 		SearchRequest req = new SearchRequest();
+		req.setJql(MessageFormat.format(requestHelper.jiraPropertyLoader.getJqlDev(), 
+				requestHelper.jiraPropertyLoader.getNames(),
+				requestHelper.jiraPropertyLoader.getFromDate(),
+				requestHelper.jiraPropertyLoader.getToDate())); 
+		  List<String> l = Arrays.asList(requestHelper.jiraPropertyLoader.getFieldsDev().toString().split(","));
+		  req.setFields(l);
+		 		return req;
+	}
+	
+	
+	public static SearchRequest getSearchRequestPS(RequestHelper requestHelper) {
+		SearchRequest req = new SearchRequest();
+					
+		req.setJql(requestHelper.jiraPropertyLoader.getJqlPS());	
 		
-		req.setJql("worklogAuthor in (name1, name2) AND worklogDate >= '2019/12/26' AND worklogDate <= '2020/01/25'");
-		
-		List<String> l = Arrays.asList("key", "summary", "assignee","timespent","timeoriginalestimate");
+		List<String> l = Arrays.asList(requestHelper.jiraPropertyLoader.getFieldsPS().toString().split(","));		
 		req.setFields(l);
+		
 		
 		return req;
 	}
