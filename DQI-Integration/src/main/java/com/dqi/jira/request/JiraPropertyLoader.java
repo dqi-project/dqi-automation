@@ -27,7 +27,7 @@ public class JiraPropertyLoader
 	String api_url_ps;
 	
 	@Value( "${jqlDev}" )
-    String jqlDev;
+        String jqlDev;
 	
 	@Value("${names}")
 	String names;
@@ -39,7 +39,7 @@ public class JiraPropertyLoader
 	String toDate;
 	
 	@Value( "${fieldsDev}" )
-    String fieldsDev;
+        String fieldsDev;
 	
 	@Value( "${jqlPS}" )
 	String jqlPS;
