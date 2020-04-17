@@ -13,6 +13,8 @@ public class MockServiceClientRequestHandler {
 		
 		stubFor(post(urlEqualTo("/rest/api/2/search"))
 				.willReturn(aResponse().withBody(SearchResponse.SEARCH_RESPONSE)));
+		stubFor(post(urlEqualTo("/rest/api/2/search/ps"))
+				.willReturn(aResponse().withBody(SearchResponse.SEARCH_RESPONSE_PS)));
 	}
 
 
