@@ -12,7 +12,7 @@ public class SearchResponse {
 			"            \"expand\": \"operations,versionedRepresentations,editmeta,changelog,transitions,renderedFields\",\r\n" + 
 			"            \"id\": \"5656566\",\r\n" + 
 			"            \"self\": \"https://ecom.jira.test.com/rest/api/2/issue/56655656\",\r\n" + 
-			"            \"key\": \"PBL-3599\",\r\n" + 
+			"            \"key\": \"XYZ-3599\",\r\n" + 
 			"            \"fields\": {\r\n" + 
 			"                \"summary\": \"Development\",\r\n" + 
 			"                \"assignee\": {\r\n" + 
@@ -38,7 +38,7 @@ public class SearchResponse {
 			"            \"expand\": \"operations,versionedRepresentations,editmeta,changelog,transitions,renderedFields\",\r\n" + 
 			"            \"id\": \"23232323\",\r\n" + 
 			"            \"self\": \"https://ecom.jira.test.com/rest/api/2/issue/666009\",\r\n" + 
-			"            \"key\": \"PBL-3598\",\r\n" + 
+			"            \"key\": \"XYZ-3598\",\r\n" + 
 			"            \"fields\": {\r\n" + 
 			"                \"summary\": \"Analysis\",\r\n" + 
 			"                \"assignee\": {\r\n" + 
@@ -64,7 +64,7 @@ public class SearchResponse {
 			"            \"expand\": \"operations,versionedRepresentations,editmeta,changelog,transitions,renderedFields\",\r\n" + 
 			"            \"id\": \"665226\",\r\n" + 
 			"            \"self\": \"https://ecom.jira.test.com/rest/api/2/issue/11111111\",\r\n" + 
-			"            \"key\": \"PBL-3594\",\r\n" + 
+			"            \"key\": \"XYZ-3594\",\r\n" + 
 			"            \"fields\": {\r\n" + 
 			"                \"summary\": \"Code changes for PBL-3593\",\r\n" + 
 			"                \"assignee\": {\r\n" + 
@@ -101,7 +101,7 @@ public class SearchResponse {
 			"            \"expand\": \"operations,versionedRepresentations,editmeta,changelog,transitions,renderedFields\",\r\n" + 
 			"            \"id\": \"5656566\",\r\n" + 
 			"            \"self\": \"https://ecom.jira.test.com/rest/api/2/issue/56655656\",\r\n" + 
-			"            \"key\": \"PBL-3599\",\r\n" + 
+			"            \"key\": \"XYZ-3599\",\r\n" + 
 			"            \"fields\": {\r\n" + 
 			"                \"summary\": \"Development\",\r\n" + 
 			"                \"assignee\": {\r\n" + 
@@ -120,14 +120,16 @@ public class SearchResponse {
 			"                    \"timeZone\": \"America/Los_Angeles\"\r\n" + 
 			"                },\r\n" + 
 			"                \"timespent\": 50400,\r\n" + 
-			"                \"timeoriginalestimate\": 64800\r\n" + 
+			"                \"timeoriginalestimate\": 64800,\r\n" + 
+			"                \"resolutiondate\": "2020-02-25T15:30:27.000-0800",\r\n" + 
+			"                \"created\": "2020-02-22T15:30:27.000-0800"\r\n" + 				
 			"            }\r\n" + 
 			"        },\r\n" + 
 			"        {\r\n" + 
 			"            \"expand\": \"operations,versionedRepresentations,editmeta,changelog,transitions,renderedFields\",\r\n" + 
 			"            \"id\": \"23232323\",\r\n" + 
 			"            \"self\": \"https://ecom.jira.test.com/rest/api/2/issue/666009\",\r\n" + 
-			"            \"key\": \"PBL-3598\",\r\n" + 
+			"            \"key\": \"XYZ-3598\",\r\n" + 
 			"            \"fields\": {\r\n" + 
 			"                \"summary\": \"Analysis\",\r\n" + 
 			"                \"assignee\": {\r\n" + 
@@ -146,18 +148,20 @@ public class SearchResponse {
 			"                    \"timeZone\": \"America/Los_Angeles\"\r\n" + 
 			"                },\r\n" + 
 			"                \"timespent\": 43200,\r\n" + 
-			"                \"timeoriginalestimate\": 43200\r\n" + 
+			"                \"timeoriginalestimate\": 43200,\r\n" + 
+			"                \"resolutiondate\": "2020-02-20T15:30:27.000-0800",\r\n" + 
+			"                \"created\": "2020-02-19T15:30:27.000-0800"\r\n" + 
 			"            }\r\n" + 
 			"        },\r\n" + 
 			"        {\r\n" + 
 			"            \"expand\": \"operations,versionedRepresentations,editmeta,changelog,transitions,renderedFields\",\r\n" + 
 			"            \"id\": \"665226\",\r\n" + 
 			"            \"self\": \"https://ecom.jira.test.com/rest/api/2/issue/11111111\",\r\n" + 
-			"            \"key\": \"PBL-3594\",\r\n" + 
+			"            \"key\": \"XYZ-3594\",\r\n" + 
 			"            \"fields\": {\r\n" + 
 			"                \"summary\": \"Code changes for PBL-3593\",\r\n" + 
 			"                \"assignee\": {\r\n" + 
-			"                    \"self\": \"https://ecom.jira.test.com/rest/api/2/user?username=Rab_Rabbit\",\r\n" + 
+			"                    \"self\": \"https://ecom.jira.test.com/rest/api/2/user?username=Tig_Tiger\",\r\n" + 
 			"                    \"name\": \"Rab_Rabbit\",\r\n" + 
 			"                    \"key\": \"Rab_Rabbit\",\r\n" + 
 			"                    \"emailAddress\": \"Rab_Rabbit@test.com\",\r\n" + 
@@ -167,12 +171,14 @@ public class SearchResponse {
 			"                        \"16x16\": \"https://ecom.jira.test.com/secure/useravatar?size=xsmall&avatarId=1212\",\r\n" + 
 			"                        \"32x32\": \"https://ecom.jira.test.com/secure/useravatar?size=medium&avatarId=121212\"\r\n" + 
 			"                    },\r\n" + 
-			"                    \"displayName\": \"Rab Rabbit\",\r\n" + 
+			"                    \"displayName\": \"Tig Tiger\",\r\n" + 
 			"                    \"active\": true,\r\n" + 
 			"                    \"timeZone\": \"America/Los_Angeles\"\r\n" + 
 			"                },\r\n" + 
 			"                \"timespent\": 50400,\r\n" + 
-			"                \"timeoriginalestimate\": 50400\r\n" + 
+			"                \"timeoriginalestimate\": 50400,\r\n" + 
+			"                \"resolutiondate\": "2020-02-25T15:30:27.000-0800",\r\n" + 
+			"                \"created\": "2020-02-22T15:30:27.000-0800"\r\n" + 	
 			"             }\r\n" + 
 			"        }\r\n" + 
 			"    ]\r\n" + 
