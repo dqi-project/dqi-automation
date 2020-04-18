@@ -20,11 +20,11 @@ public class JiraPropertyLoader
 	@Value( "${port}" )
 	String port;
 	
-	@Value( "${api_url}" )
-	String api_url;
+	@Value( "${apiUrl}" )
+	String apiUrl;
 	
-	@Value( "${api_url_ps}" )
-	String api_url_ps;
+	@Value( "${apiUrlPS}" )
+	String apiUrlPS;
 	
 	@Value( "${jqlDev}" )
         String jqlDev;
@@ -45,5 +45,8 @@ public class JiraPropertyLoader
 	String jqlPS;
 	
 	@Value( "${fieldsPs}" )
-	String fieldsPS;	
+	String fieldsPS;
+	
+	@Value( "${protocol}" )
+	String protocol;
 }

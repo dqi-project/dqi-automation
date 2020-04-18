@@ -18,16 +18,63 @@ import com.dqi.jira.request.SearchRequest;
 import com.dqi.jira.response.SearchResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 @ComponentScan(basePackages="com.dqi.jira.request")
 @Service("consumer")
 public class JIRAServiceConsumer {
 	
 @Autowired
-RequestHelper requestHelper;	
+RequestHelper requestHelper;
+
 @Autowired
 JiraPropertyLoader jiraPropertyLoader;
+
+//@Autowired
+//RestTemplate restTemplate;
 	
-	public SearchResponse search() {
+	public SearchResponse searchPSTeamData() {
+
+		SearchRequest requestVO = RequestHelper.getSearchRequestPS(requestHelper);
+		
+		//The below is only to check request json
+		ObjectMapper mapper = new ObjectMapper();
+		String jsonStr;
+		try {
+			jsonStr = mapper.writeValueAsString(requestVO);
+			System.out.println("REQUEST:" + jsonStr);
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//////////////////////////////////////////
+		
+		SearchResponse response = search(requestVO, jiraPropertyLoader.getApiUrlPS());		
+		return response;
+		
+	}
+	
+	public SearchResponse searchDevTeamData() {
+
+		SearchRequest requestVO = RequestHelper.getSearchRequestDev(requestHelper);
+		
+		//The below is only to check request json
+		ObjectMapper mapper = new ObjectMapper();
+		String jsonStr;
+		try {
+			jsonStr = mapper.writeValueAsString(requestVO);
+			System.out.println("REQUEST:" + jsonStr);
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//////////////////////////////////////////
+		
+		SearchResponse response = search(requestVO, jiraPropertyLoader.getApiUrl());		
+		return response;
+		
+	}
+	
+	public SearchResponse searchDevTeamData1() {
 		RestTemplate restTemplate = new RestTemplate();
 		 
 		SearchRequest requestVO = RequestHelper.getSearchRequestDev(requestHelper);
@@ -76,7 +123,7 @@ JiraPropertyLoader jiraPropertyLoader;
 
 
 		//String response = restTemplate.postForObject("http://localhost:8091/rest/api/2/search", request, String.class);
-		SearchResponse response = restTemplate.postForObject("http://"+jiraPropertyLoader.getHost()+":"+jiraPropertyLoader.getPort()+jiraPropertyLoader.getApi_url_ps(), request, SearchResponse.class);
+		SearchResponse response = restTemplate.postForObject("http://"+jiraPropertyLoader.getHost()+":"+jiraPropertyLoader.getPort()+jiraPropertyLoader.getApiUrl(), request, SearchResponse.class);
 		System.out.println(response);
 		//SearchResponse response = restTemplate.postForObject("http://"+jiraPropertyLoader.getHost()+":"+jiraPropertyLoader.getPort()+jiraPropertyLoader.getApi_url(), requestVO, SearchResponse.class);
         //ResponseEntity<SearchResponse> responseEntity = restTemplate.exchange(url, HttpMethod.POST, requestEntity, SearchResponse.class);
@@ -86,7 +133,41 @@ JiraPropertyLoader jiraPropertyLoader;
 		//String response = restTemplate.postForObject("http://localhost:8091/rest/api/2/search", request, String.class);
 		//response = restTemplate.postForObject("http://"+jiraPropertyLoader.getHost()+":"+jiraPropertyLoader.getPort()+jiraPropertyLoader.getApi_url_ps(), requestPS, SearchResponse.class);
 		//System.out.println(response);
-		///System.out.println(response.toString());
+		//System.out.println(response.toString());
+		return response;
+	}
+	
+	private SearchResponse search(SearchRequest requestVO, String apiUrl) {
+		
+		RestTemplate restTemplate = new RestTemplate();
+		
+		MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter = new MappingJackson2HttpMessageConverter();
+		mappingJackson2HttpMessageConverter.setSupportedMediaTypes(Arrays.asList(MediaType.APPLICATION_JSON, MediaType.APPLICATION_OCTET_STREAM));
+		restTemplate.getMessageConverters().add(mappingJackson2HttpMessageConverter);
+
+		/****************WITH AUTH*******************
+		String username = "test";
+		String password = "test";
+        String authorizationHeader = "Basic " + DatatypeConverter.printBase64Binary((username + ":" + password).getBytes());
+        HttpHeaders requestHeaders = new HttpHeaders();
+        
+        requestHeaders.add("Authorization", authorizationHeader);
+        requestHeaders.add("Accept", MediaType.APPLICATION_JSON_VALUE);
+        requestHeaders.add("Content-Type", MediaType.APPLICATION_JSON_VALUE);
+
+        HttpEntity<SearchRequest> requestEntity = new HttpEntity<>(requestVO, requestHeaders);
+        SearchResponse response = restTemplate.postForObject("http://"+jiraPropertyLoader.getHost()+":"+jiraPropertyLoader.getPort()+jiraPropertyLoader.getApi_url(), requestVO, SearchResponse.class);
+        ResponseEntity<SearchResponse> responseEntity = restTemplate.exchange(url, HttpMethod.POST, requestEntity, SearchResponse.class);
+		System.out.println("RESPONSE:" + responseEntity.getBody().toString());
+        **********************************/
+        
+        String url = String.join("", "http://", jiraPropertyLoader.getHost(),":", jiraPropertyLoader.getPort(), apiUrl);
+        System.out.println("URL:" + url);
+        
+		HttpEntity<SearchRequest> request = new HttpEntity<>(requestVO);
+		SearchResponse response = restTemplate.postForObject(url, request, SearchResponse.class);
+		System.out.println("RESPONSE:" + response);
+
 		return response;
 	}
 }

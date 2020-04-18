@@ -23,9 +23,15 @@ public class DqiIntegrationApplication implements CommandLineRunner{
 	
 	@Override
 	public void run(final String... args) {
-		SearchResponse responsePS = this.JIRAServiceConsumer.search();
+		
+		System.out.println("PS Team search start");
+		SearchResponse responsePS = this.JIRAServiceConsumer.searchPSTeamData();
 		Map<String, PSTeamMemberDetails> outputPSTeamMap = ResponseHelper.populatePSTeamMemberDetails(responsePS);
 		System.out.println("PS Team Output Data:" + outputPSTeamMap);
+		
+		System.out.println("Dev Team search start");
+		SearchResponse responseDev = this.JIRAServiceConsumer.searchDevTeamData();
+		System.out.println("Dev Team Output Data:" + responseDev);
 	}
 
 }
