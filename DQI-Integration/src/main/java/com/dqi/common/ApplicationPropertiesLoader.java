@@ -1,4 +1,4 @@
-package com.dqi.jira.request;
+package com.dqi.common;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
@@ -12,7 +12,7 @@ import lombok.ToString;
 @ToString
 @PropertySource("file:/C:/WS/dqi-integration.properties")
 @Component
-public class JiraPropertyLoader
+public class ApplicationPropertiesLoader
 {
 	@Value( "${host}" )
 	String host;
@@ -27,7 +27,7 @@ public class JiraPropertyLoader
 	String apiUrlPS;
 	
 	@Value( "${jqlDev}" )
-        String jqlDev;
+    String jqlDev;
 	
 	@Value("${names}")
 	String names;
@@ -39,7 +39,7 @@ public class JiraPropertyLoader
 	String toDate;
 	
 	@Value( "${fieldsDev}" )
-        String fieldsDev;
+    String fieldsDev;
 	
 	@Value( "${jqlPS}" )
 	String jqlPS;

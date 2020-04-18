@@ -6,12 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 import com.dqi.dto.PSTeamMemberDetails;
 import com.dqi.jira.response.ResponseHelper;
 import com.dqi.jira.response.SearchResponse;
 
 @SpringBootApplication
+@ComponentScan(basePackages="com.dqi.*")
 public class DqiIntegrationApplication implements CommandLineRunner{
 	
 	@Autowired

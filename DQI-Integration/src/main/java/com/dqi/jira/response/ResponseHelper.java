@@ -1,12 +1,10 @@
 package com.dqi.jira.response;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import com.dqi.dto.PSTeamMemberDetails;
-import com.dqi.dto.StartTimeEndTimePair;
 
 public class ResponseHelper {
 	
