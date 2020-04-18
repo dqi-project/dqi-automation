@@ -13,5 +13,7 @@ public class Fields {
 	String timespent;
 	String timeoriginalestimate;
 	Assignee assignee;
+	String created;
+	String resolutiondate;
 	
 }

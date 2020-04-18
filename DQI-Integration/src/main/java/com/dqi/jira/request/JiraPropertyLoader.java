@@ -10,7 +10,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@PropertySource("file:/D:/App.properties")
+@PropertySource("file:/C:/WS/dqi-integration.properties")
 @Component
 public class JiraPropertyLoader
 {

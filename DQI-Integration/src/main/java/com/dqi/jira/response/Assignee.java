@@ -8,6 +8,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class Assignee {
-String name;
-String emailAddress;
+	String name;
+	String emailAddress;
+	String displayName;
 }

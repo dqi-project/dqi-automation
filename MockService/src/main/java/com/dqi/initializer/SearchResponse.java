@@ -118,11 +118,9 @@ public class SearchResponse {
 			"                    \"displayName\": \"Rab Rabbit\",\r\n" + 
 			"                    \"active\": true,\r\n" + 
 			"                    \"timeZone\": \"America/Los_Angeles\"\r\n" + 
-			"                },\r\n" + 
-			"                \"timespent\": 50400,\r\n" + 
-			"                \"timeoriginalestimate\": 64800,\r\n" + 
-			"                \"resolutiondate\": "2020-02-25T15:30:27.000-0800",\r\n" + 
-			"                \"created\": "2020-02-22T15:30:27.000-0800"\r\n" + 				
+			"                },\r\n" +  
+			"                \"resolutiondate\": \"2020-02-25T15:30:27.000-0800\",\r\n" + 
+			"                \"created\": \"2020-02-22T15:30:27.000-0800\"\r\n" + 				
 			"            }\r\n" + 
 			"        },\r\n" + 
 			"        {\r\n" + 
@@ -147,10 +145,8 @@ public class SearchResponse {
 			"                    \"active\": true,\r\n" + 
 			"                    \"timeZone\": \"America/Los_Angeles\"\r\n" + 
 			"                },\r\n" + 
-			"                \"timespent\": 43200,\r\n" + 
-			"                \"timeoriginalestimate\": 43200,\r\n" + 
-			"                \"resolutiondate\": "2020-02-20T15:30:27.000-0800",\r\n" + 
-			"                \"created\": "2020-02-19T15:30:27.000-0800"\r\n" + 
+			"                \"resolutiondate\": \"2020-02-20T15:30:27.000-0800\",\r\n" + 
+			"                \"created\": \"2020-02-19T15:30:27.000-0800\"\r\n" + 
 			"            }\r\n" + 
 			"        },\r\n" + 
 			"        {\r\n" + 
@@ -164,7 +160,7 @@ public class SearchResponse {
 			"                    \"self\": \"https://ecom.jira.test.com/rest/api/2/user?username=Tig_Tiger\",\r\n" + 
 			"                    \"name\": \"Rab_Rabbit\",\r\n" + 
 			"                    \"key\": \"Rab_Rabbit\",\r\n" + 
-			"                    \"emailAddress\": \"Rab_Rabbit@test.com\",\r\n" + 
+			"                    \"emailAddress\": \"Tig_Tiger@test.com\",\r\n" + 
 			"                    \"avatarUrls\": {\r\n" + 
 			"                        \"48x48\": \"https://ecom.jira.test.com/secure/useravatar?avatarId=1212122\",\r\n" + 
 			"                        \"24x24\": \"https://ecom.jira.test.com/secure/useravatar?size=small&avatarId=12121212\",\r\n" + 
@@ -175,10 +171,8 @@ public class SearchResponse {
 			"                    \"active\": true,\r\n" + 
 			"                    \"timeZone\": \"America/Los_Angeles\"\r\n" + 
 			"                },\r\n" + 
-			"                \"timespent\": 50400,\r\n" + 
-			"                \"timeoriginalestimate\": 50400,\r\n" + 
-			"                \"resolutiondate\": "2020-02-25T15:30:27.000-0800",\r\n" + 
-			"                \"created\": "2020-02-22T15:30:27.000-0800"\r\n" + 	
+			"                \"resolutiondate\": \"2020-02-25T15:30:27.000-0800\",\r\n" + 
+			"                \"created\": \"2020-02-22T15:30:27.000-0800\"\r\n" + 	
 			"             }\r\n" + 
 			"        }\r\n" + 
 			"    ]\r\n" + 
