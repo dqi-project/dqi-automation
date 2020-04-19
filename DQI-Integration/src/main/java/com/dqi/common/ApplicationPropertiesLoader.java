@@ -14,11 +14,8 @@ import lombok.ToString;
 @Component
 public class ApplicationPropertiesLoader
 {
-	@Value( "${host}" )
-	String host;
-	
-	@Value( "${port}" )
-	String port;
+	@Value( "${baseURL}" )
+	String baseURL;
 	
 	@Value( "${apiUrl}" )
 	String apiUrl;
@@ -47,6 +44,9 @@ public class ApplicationPropertiesLoader
 	@Value( "${fieldsPs}" )
 	String fieldsPS;
 	
-	@Value( "${protocol}" )
-	String protocol;
+	@Value( "${jqlOnsite}" )
+	String jqlOnsite;
+	
+	@Value( "${fieldsOnsite}" )
+	String fieldsOnsite;
 }

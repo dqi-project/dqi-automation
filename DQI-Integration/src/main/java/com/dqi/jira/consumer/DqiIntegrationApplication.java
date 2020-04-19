@@ -31,9 +31,15 @@ public class DqiIntegrationApplication implements CommandLineRunner{
 		Map<String, PSTeamMemberDetails> outputPSTeamMap = ResponseHelper.populatePSTeamMemberDetails(responsePS);
 		System.out.println("PS Team Output Data:" + outputPSTeamMap);
 		
-		System.out.println("Dev Team search start");
+		System.out.println("\n\nDev Team search start");
 		SearchResponse responseDev = this.JIRAServiceConsumer.searchDevTeamData();
 		System.out.println("Dev Team Output Data:" + responseDev);
+		
+		System.out.println("\n\nOnsite Team search start");
+		SearchResponse responseOnsite = this.JIRAServiceConsumer.searchOnsiteTeamData();
+		//For Onsite only count is required which is covered in PS team data hence using same method
+		Map<String, PSTeamMemberDetails> outputOnsiteTeamMap = ResponseHelper.populatePSTeamMemberDetails(responseOnsite);
+		System.out.println("Onsite Team Output Data:" + outputOnsiteTeamMap);//For Onsite only count is required which is covered in PS team data
 	}
 
 }

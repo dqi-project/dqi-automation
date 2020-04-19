@@ -1,10 +1,15 @@
 package com.dqi.jira.consumer;		
 import java.util.Arrays;
 
+import javax.xml.bind.DatatypeConverter;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -30,28 +35,31 @@ ApplicationPropertiesLoader propertiesLoader;
 	
 	public SearchResponse searchPSTeamData() {
 
-		SearchRequest requestVO = RequestHelper.getSearchRequestPS(requestHelper);
+		SearchRequest requestVO = RequestHelper.getSearchRequestPS(requestHelper);		
+		SearchResponse response = search(requestVO, String.join("",propertiesLoader.getBaseURL(), propertiesLoader.getApiUrlPS()));		
+		return response;
 		
-		//The below is only to check request json
-		ObjectMapper mapper = new ObjectMapper();
-		String jsonStr;
-		try {
-			jsonStr = mapper.writeValueAsString(requestVO);
-			System.out.println("REQUEST:" + jsonStr);
-		} catch (JsonProcessingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		//////////////////////////////////////////
-		
-		SearchResponse response = search(requestVO, propertiesLoader.getApiUrlPS());		
+	}
+	
+	
+	public SearchResponse searchOnsiteTeamData() {
+
+		SearchRequest requestVO = RequestHelper.getSearchRequestOnsite(requestHelper);		
+		SearchResponse response = search(requestVO, String.join("",propertiesLoader.getBaseURL(), propertiesLoader.getApiUrlPS()));		
 		return response;
 		
 	}
 	
 	public SearchResponse searchDevTeamData() {
 
-		SearchRequest requestVO = RequestHelper.getSearchRequestDev(requestHelper);
+		SearchRequest requestVO = RequestHelper.getSearchRequestDev(requestHelper);	
+		SearchResponse response = search(requestVO, String.join("",propertiesLoader.getBaseURL(), propertiesLoader.getApiUrl()));		
+		return response;
+		
+	}
+	
+	private SearchResponse search(SearchRequest requestVO, String apiUrl) {
+		
 		
 		//The below is only to check request json
 		ObjectMapper mapper = new ObjectMapper();
@@ -65,14 +73,9 @@ ApplicationPropertiesLoader propertiesLoader;
 		}
 		//////////////////////////////////////////
 		
-		SearchResponse response = search(requestVO, propertiesLoader.getApiUrl());		
-		return response;
-		
-	}
-	
-	private SearchResponse search(SearchRequest requestVO, String apiUrl) {
-		
 		RestTemplate restTemplate = new RestTemplate();
+		
+        System.out.println("URL:" + apiUrl);
 		
 		MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter = new MappingJackson2HttpMessageConverter();
 		mappingJackson2HttpMessageConverter.setSupportedMediaTypes(Arrays.asList(MediaType.APPLICATION_JSON, MediaType.APPLICATION_OCTET_STREAM));
@@ -89,19 +92,18 @@ ApplicationPropertiesLoader propertiesLoader;
         requestHeaders.add("Content-Type", MediaType.APPLICATION_JSON_VALUE);
 
         HttpEntity<SearchRequest> requestEntity = new HttpEntity<>(requestVO, requestHeaders);
-        SearchResponse response = restTemplate.postForObject("http://"+jiraPropertyLoader.getHost()+":"+jiraPropertyLoader.getPort()+jiraPropertyLoader.getApi_url(), requestVO, SearchResponse.class);
-        ResponseEntity<SearchResponse> responseEntity = restTemplate.exchange(url, HttpMethod.POST, requestEntity, SearchResponse.class);
+        ResponseEntity<SearchResponse> responseEntity = restTemplate.exchange(apiUrl, HttpMethod.POST, requestEntity, SearchResponse.class);
 		System.out.println("RESPONSE:" + responseEntity.getBody().toString());
+		return responseEntity.getBody();
         **********************************/
         
-        String url = String.join("", "http://", propertiesLoader.getHost(),":", propertiesLoader.getPort(), apiUrl);
-        System.out.println("URL:" + url);
-        
+		/****************WITH MOCK*******************/
 		HttpEntity<SearchRequest> request = new HttpEntity<>(requestVO);
-		SearchResponse response = restTemplate.postForObject(url, request, SearchResponse.class);
+		SearchResponse response = restTemplate.postForObject(apiUrl, request, SearchResponse.class);
 		System.out.println("RESPONSE:" + response);
-
 		return response;
+		/****************WITH MOCK*******************/
+
 	}
 }
 
