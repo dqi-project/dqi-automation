@@ -1,5 +1,10 @@
 package com.dqi.jira.response;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -63,9 +68,17 @@ public class ResponseHelper {
 		return detailsMap;
 	}
 
-	private static double computeTotalResolutionTime(String created, String resolutiondate) {
+	private static double computeTotalResolutionTime(String created, String resolutiondate) throws ParseException {
 		// TODO Auto-generated method stub
-		return 0.0;
+		long timeUnits = (ChronoUnit.HOURS.between(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZZZZ").parse(created).toInstant()
+				                                      .atZone(ZoneId.systemDefault()).toLocalDateTime()  , 
+				                                      new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZZZZ").parse(resolutiondate).toInstant()
+				                                      .atZone(ZoneId.systemDefault())
+				                                       .toLocalDateTime()))/24; 
+
+				   if(timeUnits<0)
+					   timeUnits=(-timeUnits);
+		return timeUnits;
 		
 	}
 	
