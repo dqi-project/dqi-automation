@@ -70,11 +70,11 @@ public class ResponseHelper {
 
 	private static double computeTotalResolutionTime(String created, String resolutiondate) throws ParseException {
 		// TODO Auto-generated method stub
-		long timeUnits = (ChronoUnit.HOURS.between(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZZZZ").parse(created).toInstant()
+		double timeUnits = (ChronoUnit.HOURS.between(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZZZZ").parse(created).toInstant()
 				                                      .atZone(ZoneId.systemDefault()).toLocalDateTime()  , 
 				                                      new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZZZZ").parse(resolutiondate).toInstant()
 				                                      .atZone(ZoneId.systemDefault())
-				                                       .toLocalDateTime()))/24; 
+				                                       .toLocalDateTime()))/24.0d; 
 
 				   if(timeUnits<0)
 					   timeUnits=(-timeUnits);
