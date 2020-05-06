@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 
 
 @Component
-@PropertySource("file:C:/Users/N.K GUPTA/Desktop/application.yml")
 @ConfigurationProperties(prefix = "xlmappingconfigs")
 public class XLMappingConfigs {
 	
