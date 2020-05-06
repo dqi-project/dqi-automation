@@ -1,0 +1,25 @@
+package com.dqi.xlmapper;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.dqi.xlmapper.process.XLMapperProcessor;
+
+@SpringBootApplication
+public class XLMapperApplication implements CommandLineRunner{
+
+	 @Autowired
+	 XLMapperProcessor xlmapperProcessor;
+	  
+	   
+	public static void main(String[] args) {
+		SpringApplication.run(XLMapperApplication.class, args);
+	} 
+	
+	@Override
+	public void run(String... args) {
+		xlmapperProcessor.process();
+	}
+}
