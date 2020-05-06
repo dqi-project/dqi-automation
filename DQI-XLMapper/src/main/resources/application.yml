@@ -1,19 +1,19 @@
-# xlmappingconfigs:
-#   sourceXL: C:\\Users\\N.K GUPTA\\Desktop\\dqi\\4 May, 2020\\dqi-automation-dev\\DQI-XLMapper\\Source.xlsx
-#   targetXL: C:\\Users\\N.K GUPTA\\Desktop\\dqi\\4 May, 2020\\dqi-automation-dev\\DQI-XLMapper\\Result.xlsx
-#   tabWiseMappingDetails:
-#     - sourceTab: SetUp Parameters
-#       targetTab: Setup Parameters
-#       srcCellTargetCellTypeMappings:
-#         - c4~c16~String
-#         - c5~c17~String
-#         - c6~c18~String
-#         - c7~c19~String
-#         - c8~c20~String
-#         - c9~c21~String
-#     - sourceTab: Base Measures
-#       targetTab: Base Measure
-#       srcCellTargetCellTypeMappings:
-#         - c4~f12~NUMERIC
-#         - c5~f13~NUMERIC
-#         - c6~f14~NUMERIC
+xlmappingconfigs:
+  sourceXL: C:\\Users\\N.K GUPTA\\Desktop\\dqi\\4 May, 2020\\dqi-automation-dev\\DQI-XLMapper\\Source.xlsx
+  targetXL: C:\\Users\\N.K GUPTA\\Desktop\\dqi\\4 May, 2020\\dqi-automation-dev\\DQI-XLMapper\\Result.xlsx
+  tabWiseMappingDetails:
+    - sourceTab: SetUp Parameters
+      targetTab: Setup Parameters
+      srcCellTargetCellTypeMappings:
+        - c4~c16~String
+        - c5~c17~String
+        - c6~c18~String
+        - c7~c19~String
+        - c8~c20~String
+        - c9~c21~String
+    - sourceTab: Base Measures
+      targetTab: Base Measure
+      srcCellTargetCellTypeMappings:
+        - c4~f12~NUMERIC
+        - c5~f13~NUMERIC
+        - c6~f14~NUMERIC
