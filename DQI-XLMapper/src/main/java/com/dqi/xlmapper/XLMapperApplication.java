@@ -20,6 +20,15 @@ public class XLMapperApplication implements CommandLineRunner{
 	
 	@Override
 	public void run(String... args) {
-		xlmapperProcessor.process();
+		try
+		{
+			if(args.length!=0)
+			xlmapperProcessor.process(args[0]);
+		}
+		catch(Throwable e)
+		{
+			e.printStackTrace();
+		}
+		
 	}
 }
