@@ -47,7 +47,7 @@ public static void write(XLMappingConfigs xlmappingConfigs,List<XLMappingCellDef
 	for(SourDestSheet sds : xlmappingConfigs.getTabWiseMappingDetails()) {
 		 destSheet = sds.getTargetTab();
 		 sourSheet = sds.getSourceTab();
-		 List<XLMappingCellDefinition> rowCells =xlmappingCellDefinitionList[i];
+		 List<XLMappingCellDefinition> rowCells =xlmappingCellDefinitionList[i];//New List array.
 		 sourXSSFSheet = sourWorkbook.getSheet(sourSheet);
 		 destXSSFSheet = destWorkbook.getSheet(destSheet);
 		 sourRow = null ;
@@ -93,11 +93,13 @@ public static void write(XLMappingConfigs xlmappingConfigs,List<XLMappingCellDef
 		 i++;
 		
 	}
+	
 	destfis.close();
 	sourfis.close();
 	FileOutputStream destfos = new FileOutputStream(destOutputFile);
 	destWorkbook.write(destfos);
-
+	sourWorkbook.close();
+	destWorkbook.close();
 	destfos.close();
 //	XSSFSheet setUpXSSFSheet = sourWorkbook.getSheet("SetUp Parameters");
 //	XSSFRow row5 = sourXSSFSheet.getRow(4);
