@@ -10,7 +10,7 @@ public class XLMappingConfigs {
 	
 	String sourceXL;
 	String targetXL;
-	List<SourDestSheet> tabWiseMappingDetails = new ArrayList<>();
+	List<TabWiseMappingDetails> tabWiseMappingDetails = new ArrayList<>();
 	
 	public String getSourceXL() {
 		return sourceXL;
@@ -25,10 +25,10 @@ public class XLMappingConfigs {
 		this.targetXL = targetXL;
 	}
 	
-	public List<SourDestSheet> getTabWiseMappingDetails() {
+	public List<TabWiseMappingDetails> getTabWiseMappingDetails() {
 		return tabWiseMappingDetails;
 	}
-	public void setTabWiseMappingDetails(List<SourDestSheet> tabWiseMappingDetails) {
+	public void setTabWiseMappingDetails(List<TabWiseMappingDetails> tabWiseMappingDetails) {
 		this.tabWiseMappingDetails = tabWiseMappingDetails;
 	}
 	@Override
