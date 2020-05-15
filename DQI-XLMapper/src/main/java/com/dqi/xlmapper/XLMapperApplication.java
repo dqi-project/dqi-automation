@@ -24,10 +24,12 @@ public class XLMapperApplication implements CommandLineRunner{
 		{
 			if(args.length!=0)
 			xlmapperProcessor.process(args[0]);
+			System.out.println("Mapping done successfully.");
 		}
 		catch(Throwable e)
 		{
-			e.printStackTrace();
+			System.out.println("An error occurred. Please try again.");
+			//e.printStackTrace();
 		}
 		
 	}
