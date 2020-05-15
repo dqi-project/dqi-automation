@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.Constructor;
 
-import com.dqi.xlmapper.config.model.SourDestSheet;
+import com.dqi.xlmapper.config.model.TabWiseMappingDetails;
 import com.dqi.xlmapper.config.model.XLMappingCellDefinition;
 import com.dqi.xlmapper.config.model.XLMappingConfigs;
 import com.dqi.xlmapper.core.SourceToTargetCellWriter;
@@ -33,29 +33,38 @@ public void process(String filePath)
 		    final Yaml yaml = new Yaml(new Constructor(XLMappingConfigs.class));
 		    xlmappingConfigs=(XLMappingConfigs) yaml.load(in);
 	
-	List<XLMappingCellDefinition> rowCells[] = new ArrayList[2];
-	rowCells[0]=new ArrayList<XLMappingCellDefinition>();
-	rowCells[1]=new ArrayList<XLMappingCellDefinition>();
+	List<XLMappingCellDefinition> xlmappingCellDefinitionListArray[] = new ArrayList[2];
+	xlmappingCellDefinitionListArray[0]=new ArrayList<XLMappingCellDefinition>();
+	xlmappingCellDefinitionListArray[1]=new ArrayList<XLMappingCellDefinition>();
 	
-	int i=0;
+	int arrayIndex=0;
 	
 	if(xlmappingConfigs.getTabWiseMappingDetails()!=null) {
-		for(SourDestSheet sds : xlmappingConfigs.getTabWiseMappingDetails()) {			
-			if(sds.getSrcCellTargetCellTypeMappings()!=null) {
-				for(String loc : sds.getSrcCellTargetCellTypeMappings()) {
-					rowCells[i].add(XLCoordinatesResolver.resolve(loc));					
+		for(TabWiseMappingDetails tabWiseMappingDetails : xlmappingConfigs.getTabWiseMappingDetails()) {			
+			if(tabWiseMappingDetails.getSrcCellTargetCellTypeMappings()!=null) {
+				for(String srcCellTargetCellTypeMappings : tabWiseMappingDetails.getSrcCellTargetCellTypeMappings()) {
+					xlmappingCellDefinitionListArray[arrayIndex].add(XLCoordinatesResolver.resolve(srcCellTargetCellTypeMappings));					
 				}
-				i++;
+				arrayIndex++;
 			}
 		}
 		}
 		
 	//Writing to the target excel sheet.
-		SourceToTargetCellWriter.write(xlmappingConfigs, rowCells);	
+		SourceToTargetCellWriter.write(xlmappingConfigs, xlmappingCellDefinitionListArray);	
 	}
-	catch (Throwable e) {
-		
-		e.printStackTrace();
+	catch(IllegalStateException e)
+	{
+		System.out.println("Error occurred. Please check if .yaml file data or excel sheet's data is correct, try again.");
+	}
+	catch(NullPointerException e)
+	{
+		System.out.println("Error occurred. Please check if .yaml file data or excel sheet's data is correct, try again.");
+		//e.printStackTrace();
+	}
+	catch(Throwable e)
+	{
+		System.out.println("An error occurred. Please try again.");
 	}
 	}
 }
