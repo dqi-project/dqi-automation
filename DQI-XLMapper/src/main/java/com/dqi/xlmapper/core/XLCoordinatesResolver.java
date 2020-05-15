@@ -2,69 +2,50 @@ package com.dqi.xlmapper.core;
 
 import com.dqi.xlmapper.config.model.XLMappingCellDefinition;
 
-
-
 public class XLCoordinatesResolver {
-public static XLMappingCellDefinition resolve(String rowColType)
+public static XLMappingCellDefinition resolve(String srcCellTargetCellTypeMappings)
 {
 	XLMappingCellDefinition xlmappingCellDefinition = new XLMappingCellDefinition();
-	String s = rowColType;
-	s = s.toUpperCase();
-	System.out.println(s);
-	String ars[] = s.split("~");
-	char soucArr[] = ars[0].toCharArray();
-	int col = 0;
-	int tCol = 0;
-	int row = 0;
-	int tRow = 0;
-	for (char ch : soucArr) {
+	srcCellTargetCellTypeMappings = srcCellTargetCellTypeMappings.toUpperCase();
+	System.out.println(srcCellTargetCellTypeMappings);
+	String srcCellTargetCellTypeMappingsArray[] = srcCellTargetCellTypeMappings.split("~");
+	char srcSheetCellMappingArray[] = srcCellTargetCellTypeMappingsArray[0].toCharArray();
+	
+	int rowNum = 0;
+	int columnNum = 0;
+	for (char arrayValue : srcSheetCellMappingArray) {
 
-		if (Character.isLetter(ch)) {
-			tCol = tCol * 26;
-			int chr = ch - 64;
-			tCol = tCol + chr;
-		} else if (Character.isDigit(ch)) {
-			tRow = tRow * 10;
-			int dig = ch - 48;
-			tRow = tRow + dig;
-			// System.out.println(dig);
+		if (Character.isLetter(arrayValue)) {		
+			columnNum = (columnNum * 26) + (arrayValue - 64);
+			
+		} else if (Character.isDigit(arrayValue)) {
+			rowNum = (rowNum * 10) + (arrayValue - 48);
 		}
 
 	}
-	col = tCol - 1;
-	row = tRow - 1;
-	xlmappingCellDefinition.setSourceColumn(col);
-	xlmappingCellDefinition.setSourRow(row);
-	// System.out.println("col : "+col );
-	// System.out.println("row : "+row );
+	xlmappingCellDefinition.setSourceColumn(columnNum - 1);
+	xlmappingCellDefinition.setSourceRow(rowNum - 1);
+
 
 	////////////////////
-	char destArr[] = ars[1].toCharArray();
-	col = 0;
-	tCol = 0;
-	row = 0;
-	tRow = 0;
-	for (char ch : destArr) {
+	char targetSheetCellMappingArray[] = srcCellTargetCellTypeMappingsArray[1].toCharArray();
 
-		if (Character.isLetter(ch)) {
-			tCol = tCol * 26;
-			int chr = ch - 64;
-			tCol = tCol + chr;
-		} else if (Character.isDigit(ch)) {
-			tRow = tRow * 10;
-			int dig = ch - 48;
-			tRow = tRow + dig;
-			// System.out.println(dig);
+	columnNum = 0;
+	rowNum = 0;
+	for (char arrayValue : targetSheetCellMappingArray) {
+
+		if (Character.isLetter(arrayValue)) {
+			columnNum = (columnNum * 26) + (arrayValue - 64);
+		} else if (Character.isDigit(arrayValue)) {
+			rowNum = (rowNum * 10) + (arrayValue - 48);
 		}
 
 	}
-	col = tCol - 1;
-	row = tRow - 1;
-	xlmappingCellDefinition.setTargetColumn(col);
-	xlmappingCellDefinition.setDestRow(row);
-	// System.out.println("col : "+col );
-	// System.out.println("row : "+row );
-	xlmappingCellDefinition.setValueType(ars[2]);
+	
+	xlmappingCellDefinition.setTargetColumn(columnNum - 1);
+	xlmappingCellDefinition.setTargetRow(rowNum - 1);
+	
+	xlmappingCellDefinition.setValueType(srcCellTargetCellTypeMappingsArray[2]);
 	return xlmappingCellDefinition;
 }
 }
