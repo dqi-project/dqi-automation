@@ -2,6 +2,7 @@ package com.dqi.xlmapper.process;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +24,7 @@ import com.dqi.xlmapper.core.XLCoordinatesResolver;
 
 public class XLMapperProcessor {
 
-public void process(String filePath) 
+public void process(String filePath) throws Throwable 
 {			
 	try (final InputStream inputStream = new FileInputStream(new File(filePath)))
 	{
@@ -49,6 +50,10 @@ public void process(String filePath)
 	//Writing to the target excel sheet.
 		SourceToTargetCellWriter.write(xlmappingConfigs, xlmappingCellDefinitionListArray);	
 	}
+	catch(FileNotFoundException e)
+	{
+		throw new FileNotFoundException();
+	}
 	catch(IllegalStateException e)
 	{
 		System.out.println("Error occurred. Please check if .yaml file data or excel sheet's data is correct, try again.");
@@ -60,7 +65,7 @@ public void process(String filePath)
 	}
 	catch(Throwable e)
 	{
-		System.out.println("An error occurred. Please try again.");
+		throw new Throwable();
 	}
 	}
 }
