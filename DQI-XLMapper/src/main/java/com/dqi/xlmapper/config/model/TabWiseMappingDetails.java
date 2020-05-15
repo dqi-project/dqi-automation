@@ -3,7 +3,7 @@ package com.dqi.xlmapper.config.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SourDestSheet {
+public class TabWiseMappingDetails {
 	String sourceTab ;
 	String targetTab;
 	List<String> srcCellTargetCellTypeMappings = new ArrayList<>();
@@ -26,13 +26,10 @@ public class SourDestSheet {
 	}
 	public void setSrcCellTargetCellTypeMappings(List<String> srcCellTargetCellTypeMappings) {
 		this.srcCellTargetCellTypeMappings = srcCellTargetCellTypeMappings;
-	}	
-
+	}
 	@Override
 	public String toString() {
-		return "SourDestSheet [sourceTab=" + sourceTab + ", targetTab=" + targetTab + ", srcCellTargetCellTypeMappings="
-				+ srcCellTargetCellTypeMappings + "]";
-	}
-	
-	
+		return "TabWiseMappingDetails [sourceTab=" + sourceTab + ", targetTab=" + targetTab
+				+ ", srcCellTargetCellTypeMappings=" + srcCellTargetCellTypeMappings + "]";
+	}		
 }
