@@ -1,0 +1,18 @@
+  sourceXL: C:\\Users\\N.K GUPTA\\Desktop\\Source.xlsx
+  targetXL: C:\\Users\\N.K GUPTA\\Desktop\\Result.xlsx
+  tabWiseMappingDetails:
+    - sourceTab: SetUp Parameters
+      targetTab: Setup Parameters
+      srcCellTargetCellTypeMappings:
+        - c4~c16~NUMERIC
+        - c5~c17~String
+        - c6~c18~String
+        - c7~c19~String
+        - c8~c20~String
+        - c9~c21~String
+    - sourceTab: Base Measures
+      targetTab: Base Measures
+      srcCellTargetCellTypeMappings:
+        - c4~f12~NUMERIC
+        - c5~f13~NUMERIC
+        - c6~f14~NUMERIC
