@@ -6,7 +6,6 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 import org.yaml.snakeyaml.Yaml;
@@ -23,15 +22,12 @@ import com.dqi.xlmapper.core.XLCoordinatesResolver;
 @Configuration
 
 public class XLMapperProcessor {
-@Autowired
-XLMappingConfigs xlmappingConfigs;
 
 public void process(String filePath) 
 {			
-	try (final InputStream in = new FileInputStream(new File(filePath)))
+	try (final InputStream inputStream = new FileInputStream(new File(filePath)))
 	{
-		    final Yaml yaml = new Yaml(new Constructor(XLMappingConfigs.class));
-		    xlmappingConfigs=(XLMappingConfigs) yaml.load(in);
+		XLMappingConfigs xlmappingConfigs=(XLMappingConfigs) new Yaml(new Constructor(XLMappingConfigs.class)).load(inputStream);
 	
 	List<XLMappingCellDefinition> xlmappingCellDefinitionListArray[] = new ArrayList[2];
 	xlmappingCellDefinitionListArray[0]=new ArrayList<XLMappingCellDefinition>();
