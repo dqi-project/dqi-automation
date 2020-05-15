@@ -7,7 +7,7 @@ public static XLMappingCellDefinition resolve(String srcCellTargetCellTypeMappin
 {
 	XLMappingCellDefinition xlmappingCellDefinition = new XLMappingCellDefinition();
 	srcCellTargetCellTypeMappings = srcCellTargetCellTypeMappings.toUpperCase();
-	System.out.println(srcCellTargetCellTypeMappings);
+	
 	String srcCellTargetCellTypeMappingsArray[] = srcCellTargetCellTypeMappings.split("~");
 	char srcSheetCellMappingArray[] = srcCellTargetCellTypeMappingsArray[0].toCharArray();
 	
